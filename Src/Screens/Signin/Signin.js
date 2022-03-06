@@ -14,8 +14,6 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
 
-const API = "http://localhost:5000";
-
 const Signin = () => {
   const { height } = useWindowDimensions();
   const {
@@ -26,7 +24,7 @@ const Signin = () => {
 
   const onSignInPressed = async (data) => {
     await axios
-      .post(`http://192.168.56.1:5000/mobapp`, data)
+      .post(`https://masterway.herokuapp.com/mobapp`, data)
       .then((resp) => {
         navigation.navigate("Home", { worker: resp.data });
       })

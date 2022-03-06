@@ -23,7 +23,7 @@ const ResetPassword = ({ route, navigation }) => {
     user.email = x;
     user.code = y;
     await axios
-      .post(`http://192.168.56.1:5000/mobapp/confirm`, user)
+      .post("https://masterway.herokuapp.com/mobapp/confirm", user)
       .then((resp) => {
         navigation.navigate("NewPassword", {
           email: x,
@@ -34,7 +34,7 @@ const ResetPassword = ({ route, navigation }) => {
   };
   const onSendPressed = async () => {
     await axios
-      .patch(`http://192.168.56.1:5000/mobapp`, email.email)
+      .patch(`https://masterway.herokuapp.com/mobapp`, email.email)
       .then((resp) => {
         alert("The code has been sent again");
       })

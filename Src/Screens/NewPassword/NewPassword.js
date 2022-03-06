@@ -26,7 +26,7 @@ const NewPassword = ({ route, navigation }) => {
     user.password = data.password1;
     console.log(user);
     await axios
-      .post(`http://192.168.56.1:5000/mobapp/reset`, user)
+      .post(`https://masterway.herokuapp.com/mobapp/reset`, user)
       .then((resp) => {
         navigation.navigate("Home", {
           worker: resp.data,
