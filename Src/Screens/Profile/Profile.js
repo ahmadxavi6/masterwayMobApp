@@ -12,13 +12,14 @@ import {
 } from "react-native";
 const Profile = ({ route, navigation }) => {
   const worker = React.useContext(NetworkContext);
+
+  let ed = "data:image/png;base64," + worker.worker.profilepic;
+  console.log(worker);
+  console.log(ed);
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.header}></SafeAreaView>
-      <Image
-        style={styles.avatar}
-        source={{ uri: "https://bootdey.com/img/Content/avatar/avatar6.png" }}
-      />
+      <Image style={styles.avatar} source={{ uri: ed }} />
       <SafeAreaView style={styles.body}>
         <SafeAreaView style={styles.bodyContent}>
           <Text style={styles.name}>{worker.worker.fName}</Text>

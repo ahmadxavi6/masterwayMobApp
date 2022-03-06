@@ -14,7 +14,7 @@ const ForgotPassword = ({ navigation }) => {
   // const navigation = useNavigation();
   const onForgotPasswordPressed = async (data) => {
     await axios
-      .patch(`http://192.168.56.1:5000/mobapp`, data)
+      .patch(`https://masterway.herokuapp.com/mobapp`, data)
       .then((resp) => {
         alert("Reset Password Email has been sent");
         navigation.navigate("ResetPassword", {
