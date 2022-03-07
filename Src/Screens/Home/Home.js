@@ -4,12 +4,15 @@ import Home1 from "../Home1/Home1";
 import Profile from "../Profile";
 import Shifts from "../Shifts";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer, StackActions } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { NetworkContext } from "../../Context/NetworkContext";
 import { useForm } from "react-hook-form";
+import ChangePassword from "../Changepassword";
 
 const Tab = createMaterialBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const Home = ({ route, navigation }) => {
   return (
