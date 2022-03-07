@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   container_PRIMARY: { backgroundColor: "#3B71F3" },
   container_SECONDARY: { backgroundColor: "orange" },
   container_TERTIARY: { backgroundColor: "white" },
+  container_FORTH: { backgroundColor: "#00BFFF" },
   text: {
     fontWeight: "bold",
   },

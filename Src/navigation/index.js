@@ -7,6 +7,10 @@ import Resetpassword from "../Screens/Resetpassword";
 import Forgotpassword from "../Screens/Forgotpassword";
 import NewPassword from "../Screens/NewPassword";
 import Home from "../Screens/Home";
+import ChangePassword from "../Screens/Changepassword";
+import { NetworkContext } from "../Context/NetworkContext";
+import EditProfile from "../Screens/EditProfile";
+
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -23,7 +27,14 @@ const Navigation = () => {
           component={Forgotpassword}
         ></Stack.Screen>
         <Stack.Screen name="Home" component={Home}></Stack.Screen>
+
         <Stack.Screen name="NewPassword" component={NewPassword}></Stack.Screen>
+
+        <Stack.Screen
+          name="ChangePassword"
+          component={ChangePassword}
+        ></Stack.Screen>
+        <Stack.Screen name="EditProfile" component={EditProfile}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

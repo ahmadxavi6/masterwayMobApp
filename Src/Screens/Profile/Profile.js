@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -12,10 +12,14 @@ import {
 } from "react-native";
 const Profile = ({ route, navigation }) => {
   const worker = React.useContext(NetworkContext);
+  const onPress1 = () => {
+    navigation.navigate("ChangePassword", { worker: worker });
+  };
+  const onPress2 = () => {
+    navigation.navigate("EditProfile", { worker: worker });
+  };
 
   let ed = "data:image/png;base64," + worker.worker.profilepic;
-  console.log(worker);
-  console.log(ed);
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.header}></SafeAreaView>
@@ -30,11 +34,11 @@ const Profile = ({ route, navigation }) => {
             Phone Number: {worker.worker.phoneNumber}
           </Text>
 
-          <TouchableOpacity style={styles.buttonContainer}>
-            <Text>Opcion 1</Text>
+          <TouchableOpacity style={styles.buttonContainer} onPress={onPress1}>
+            <Text>Change Password</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonContainer}>
-            <Text>Opcion 2</Text>
+          <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
+            <Text>Edit Profile</Text>
           </TouchableOpacity>
         </SafeAreaView>
       </SafeAreaView>
