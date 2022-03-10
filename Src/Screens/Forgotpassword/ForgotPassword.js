@@ -4,8 +4,12 @@ import Custombutton from "../../Components/Custombutton";
 import Custominput from "../../Components/Custominput";
 import { useNavigation, navigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
+import Spinner from "react-native-loading-spinner-overlay";
+
 import axios from "axios";
 const ForgotPassword = ({ navigation }) => {
+  const [loading, setLoading] = useState(false);
+
   const {
     control,
     handleSubmit,
@@ -13,6 +17,8 @@ const ForgotPassword = ({ navigation }) => {
   } = useForm();
   // const navigation = useNavigation();
   const onForgotPasswordPressed = async (data) => {
+    setLoading(true);
+
     await axios
       .patch(`https://masterway.herokuapp.com/mobapp`, data)
       .then((resp) => {
@@ -23,7 +29,20 @@ const ForgotPassword = ({ navigation }) => {
       })
 
       .catch((err) => alert("There is no such email"));
+    setLoading(false);
   };
+  if (loading) {
+    return (
+      <Spinner
+        //visibility of Overlay Loading Spinner
+        visible={loading}
+        //Text with the Spinner
+        textContent={"Sendig email ...."}
+        //Text style of the Spinner Text
+        textStyle={Styles.spinnerTextStyle}
+      />
+    );
+  }
 
   return (
     <View style={Styles.root}>
@@ -31,7 +50,6 @@ const ForgotPassword = ({ navigation }) => {
       <Custominput
         placeholder={"Email"}
         rules={{ required: "Email is Required" }}
-        placeholder="Email"
         control={control}
         name="email"
       />

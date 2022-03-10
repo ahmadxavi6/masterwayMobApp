@@ -24,7 +24,7 @@ const Home = ({ route, navigation }) => {
       >
         <Tab.Screen
           options={{
-            tabBarLabel: "Home1",
+            tabBarLabel: "Home",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="home" color={color} size={26} />
             ),

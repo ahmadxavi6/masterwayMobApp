@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
+import ButtonSpinner from "react-native-button-spinner";
 
 const CustomButton = ({ onPress, text, type }) => {
   return (

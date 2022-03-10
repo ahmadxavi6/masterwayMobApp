@@ -5,6 +5,7 @@ import {
   StyleSheet,
   useWindowDimensions,
   TextInput,
+  ActivityIndicator,
 } from "react-native";
 import React, { useState } from "react";
 import Logo from "../../../assets/logo2.png";
@@ -13,8 +14,11 @@ import Custombutton from "../../Components/Custombutton";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
+import Spinner from "react-native-loading-spinner-overlay";
 
 const Signin = () => {
+  const [loading, setLoading] = useState(false);
+
   const { height } = useWindowDimensions();
   const {
     control,
@@ -23,17 +27,31 @@ const Signin = () => {
   } = useForm();
 
   const onSignInPressed = async (data) => {
+    setLoading(true);
     await axios
       .post(`https://masterway.herokuapp.com/mobapp`, data)
       .then((resp) => {
         navigation.navigate("Home", { worker: resp.data });
       })
       .catch((err) => alert("Wrong Email or Password"));
+    setLoading(false);
   };
   const navigation = useNavigation();
   const onForgotPasswordPressed = () => {
     navigation.navigate("ForgotPassword");
   };
+  if (loading) {
+    return (
+      <Spinner
+        //visibility of Overlay Loading Spinner
+        visible={loading}
+        //Text with the Spinner
+        textContent={"Log in ...."}
+        //Text style of the Spinner Text
+        textStyle={Styles.spinnerTextStyle}
+      />
+    );
+  }
   return (
     <View style={Styles.root}>
       <Image
@@ -77,6 +95,9 @@ const Styles = StyleSheet.create({
     width: "70%",
     maxWidth: 300,
     maxHeight: 300,
+  },
+  spinnerTextStyle: {
+    color: "#FFF",
   },
 });
 export default Signin;

@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { StyleSheet } from "react-native-web";
@@ -6,16 +6,53 @@ import Custombutton from "../../Components/Custombutton";
 import Custominput from "../../Components/Custominput";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useEffect } from "react";
+import { useState } from "react";
+import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
+import Spinner from "react-native-loading-spinner-overlay";
 
 const EditProfile = ({ route, navigation }) => {
   const worker = route.params;
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const uploadPic = async (data) => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+      base64: true,
+    });
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+    setLoading(true);
+
+    const img = { profilepic: "", email: "" };
+    img.profilepic = result.base64;
+    img.email = worker.worker.worker.email;
+
+    await axios
+
+      .post("https://masterway.herokuapp.com/admins/profilepic/mob", img)
+
+      .then((resp) => {
+        alert("Profile picture has been changed ");
+      })
+      .catch((err) => alert("There is problem"));
+    setLoading(false);
+  };
   const onEditPress = async (data) => {
+    setLoading(true);
+
     const user = {
       fName: "",
       email: "",
@@ -45,7 +82,7 @@ const EditProfile = ({ route, navigation }) => {
     } else if (data.age != undefined) {
       user.age = data.age;
     }
-
+    user._id = data._id;
     await axios
 
       .put("https://masterway.herokuapp.com/workers/app", user)
@@ -54,9 +91,27 @@ const EditProfile = ({ route, navigation }) => {
         alert("Your Infomration has been changed ");
       })
       .catch((err) => alert("There is problem"));
+    setLoading(false);
   };
+  if (loading) {
+    return (
+      <Spinner
+        //visibility of Overlay Loading Spinner
+        visible={loading}
+        //Text with the Spinner
+        textContent={"Update Profile ...."}
+        //Text style of the Spinner Text
+        textStyle={Styles.spinnerTextStyle}
+      />
+    );
+  }
   return (
     <SafeAreaView style={Styles.root}>
+      <Custombutton
+        text="Change profile picture"
+        onPress={handleSubmit(uploadPic)}
+        type="FORTH"
+      ></Custombutton>
       <Text style={Styles.title}>Name</Text>
       <Custominput placeholder={"Full Name"} control={control} name="fName" />
       <Text style={Styles.title}>Email</Text>
@@ -83,11 +138,7 @@ const Styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#00BFFF",
     flex: 1,
-  },
-  logo: {
-    width: "70%",
-    maxWidth: 300,
-    maxHeight: 300,
+    justifyContent: "center",
   },
   title1: {
     fontSize: 100,
@@ -102,6 +153,23 @@ const Styles = StyleSheet.create({
     color: "#051c60",
     margin: 10,
     marginTop: 100,
+  },
+  buttonStyle: {
+    backgroundColor: "#307ecc",
+    borderWidth: 0,
+    color: "#FFFFFF",
+    borderColor: "#307ecc",
+    height: 40,
+    alignItems: "center",
+    borderRadius: 30,
+    marginLeft: 35,
+    marginRight: 35,
+    marginTop: 15,
+  },
+  buttonTextStyle: {
+    color: "#FFFFFF",
+    paddingVertical: 10,
+    fontSize: 16,
   },
 });
 
