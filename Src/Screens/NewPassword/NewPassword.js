@@ -4,8 +4,12 @@ import Custombutton from "../../Components/Custombutton";
 import Custominput from "../../Components/Custominput";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Spinner from "react-native-loading-spinner-overlay";
+import { useState } from "react";
 
 const NewPassword = ({ route, navigation }) => {
+  const [loading, setLoading] = useState(false);
+
   const {
     control,
     handleSubmit,
@@ -18,22 +22,34 @@ const NewPassword = ({ route, navigation }) => {
       alert("The password dont match");
       return;
     }
+    setLoading(true);
+
     const user = {
       email: "",
       password: "",
     };
     user.email = email.email;
     user.password = data.password1;
-    console.log(user);
     await axios
       .post(`https://masterway.herokuapp.com/mobapp/reset`, user)
       .then((resp) => {
-        navigation.navigate("Home", {
-          worker: resp.data,
-        });
+        navigation.navigate("SignIn");
       })
       .catch((err) => alert("The code is not correct"));
+    setLoading(false);
   };
+  if (loading) {
+    return (
+      <Spinner
+        //visibility of Overlay Loading Spinner
+        visible={loading}
+        //Text with the Spinner
+        textContent={"Changing password ...."}
+        //Text style of the Spinner Text
+        textStyle={Styles.spinnerTextStyle}
+      />
+    );
+  }
   return (
     <View style={Styles.root}>
       <Text style={Styles.title}>Change your password</Text>
