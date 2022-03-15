@@ -10,6 +10,7 @@ import Home from "../Screens/Home";
 import ChangePassword from "../Screens/Changepassword";
 import { NetworkContext } from "../Context/NetworkContext";
 import EditProfile from "../Screens/EditProfile";
+import SendShifts from "../Screens/SendShifts";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,7 @@ const Navigation = () => {
           component={ChangePassword}
         ></Stack.Screen>
         <Stack.Screen name="EditProfile" component={EditProfile}></Stack.Screen>
+        <Stack.Screen name="SendShifts" component={SendShifts}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
