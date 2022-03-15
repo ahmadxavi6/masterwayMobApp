@@ -39,6 +39,7 @@ const Profile = ({ route, navigation }) => {
       .put("https://masterway.herokuapp.com/workers/appprofile", user)
       .then((resp) => {
         setState(resp.data);
+        console.log(resp.data.weekShifts);
       })
       .catch((err) => console.log("Problem"));
     setLoading(false);
