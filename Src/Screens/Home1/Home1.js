@@ -17,49 +17,49 @@ const Home1 = ({ route, navigation }) => {
     today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
 
   if (
-    today.getDay() == 1 &&
+    today.getDay() == 0 &&
     has !== true &&
     worker.worker.weekShifts.Sun.hours !== ""
   ) {
     setHas(true);
   }
   if (
-    today.getDay() == 2 &&
+    today.getDay() == 1 &&
     has !== true &&
     worker.worker.weekShifts.Mon.hours !== ""
   ) {
     setHas(true);
   }
   if (
-    today.getDay() == 3 &&
+    today.getDay() == 2 &&
     has !== true &&
     worker.worker.weekShifts.Tue.hours !== ""
   ) {
     setHas(true);
   }
   if (
-    today.getDay() == 4 &&
+    today.getDay() == 3 &&
     has !== true &&
     worker.worker.weekShifts.Wed.hours !== ""
   ) {
     setHas(true);
   }
   if (
-    today.getDay() == 5 &&
+    today.getDay() == 4 &&
     has !== true &&
     worker.worker.weekShifts.Thur.hours !== ""
   ) {
     setHas(true);
   }
   if (
-    today.getDay() == 6 &&
+    today.getDay() == 5 &&
     has !== true &&
     worker.worker.weekShifts.Fri.hours !== ""
   ) {
     setHas(true);
   }
   if (
-    today.getDay() == 7 &&
+    today.getDay() == 6 &&
     has !== true &&
     worker.worker.weekShifts.Sat.hours !== ""
   ) {
