@@ -9,6 +9,7 @@ import NewPassword from "../Screens/NewPassword";
 import Home from "../Screens/Home";
 import ChangePassword from "../Screens/Changepassword";
 import { NetworkContext } from "../Context/NetworkContext";
+import StartShift from "../Screens/StartShift/StartShift";
 import EditProfile from "../Screens/EditProfile";
 import SendShifts from "../Screens/SendShifts";
 
@@ -37,6 +38,7 @@ const Navigation = () => {
         ></Stack.Screen>
         <Stack.Screen name="EditProfile" component={EditProfile}></Stack.Screen>
         <Stack.Screen name="SendShifts" component={SendShifts}></Stack.Screen>
+        <Stack.Screen name="StartShift" component={StartShift}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

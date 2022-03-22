@@ -142,7 +142,7 @@ const SendShifts = ({ route, navigation }) => {
           <Picker.Item label="00:00-06:00" value="00:00-06:00" />
           <Picker.Item label="ALL DAY" value="ALL DAY" />
         </Picker>
-        <Text styles={styles.name}>Satarday</Text>
+        <Text styles={styles.name}>Saturday</Text>
 
         <Picker
           selectedValue={sat}

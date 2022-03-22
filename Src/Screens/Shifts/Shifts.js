@@ -39,7 +39,7 @@ const Shifts = ({ route, navigation }) => {
       </Text>
       <Text style={styles.info}>Info: {worker.worker.weekShifts.Fri.info}</Text>
       <Text style={styles.description}>
-        Satarday: {worker.worker.weekShifts.Sat.hours}
+        Saturday: {worker.worker.weekShifts.Sat.hours}
       </Text>
       <Text style={styles.info}>Info: {worker.worker.weekShifts.Sat.info}</Text>
       <TouchableOpacity style={styles.buttonContainer} onPress={SendShifts}>

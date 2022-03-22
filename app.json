@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "MasterWay",
+   
     "plugins": [
       [
         "expo-image-picker",
@@ -9,6 +10,7 @@
         }
       ]
     ],
+    
     "slug": "MasterWay",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -25,6 +27,13 @@
       "**/*"
     ],
     "ios": {
+      
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ]
+      },
       "supportsTablet": true
     },
     "android": {
@@ -33,6 +42,7 @@
         "backgroundColor": "#FFFFFF"
       }
     },
+    
     "web": {
       "favicon": "./assets/favicon.png"
     }
