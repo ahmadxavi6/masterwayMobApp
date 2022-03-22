@@ -8,6 +8,7 @@ import {
   Touchable,
   TouchableOpacity,
 } from "react-native";
+import axios from "axios";
 import React from "react";
 import { NetworkContext } from "../../Context/NetworkContext";
 import { Stopwatch, Timer } from "react-native-stopwatch-timer";
@@ -17,20 +18,32 @@ import Constants from "expo-constants";
 import * as Location from "expo-location";
 import { useEffect } from "react";
 import { useState } from "react";
-import axios from "axios";
 
 const StartShift = ({ route, navigation }) => {
   const worker = route.params;
   const user = { email: "", Long: "", Lati: "" };
+  const useer = { email: "", day: "", hour: "" };
   const [isStopwatchStart, setIsStopwatchStart] = useState(true);
   const [time, setTime] = useState("");
-
+  var today = new Date();
+  var date =
+    today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const sendTime = async () => {
     setIsStopwatchStart(false);
-    console.log(time);
-    navigation.navigate("Home1");
+    useer.email = worker.worker.worker.email;
+    useer.day = date;
+    useer.hour = time;
+    await axios
+
+      .put("https://masterway.herokuapp.com/workers/hours", useer)
+
+      .then((resp) => {
+        alert("Your shift has finished ");
+        navigation.navigate("Home1");
+      })
+      .catch((err) => alert("There is problem"));
   };
   useEffect(() => {
     (async () => {
@@ -40,6 +53,7 @@ const StartShift = ({ route, navigation }) => {
         return;
       }
       const interval = setInterval(async () => {
+        const ac = new AbortController();
         let location = await Location.getCurrentPositionAsync({});
         setLocation(location);
         let lati = "Waiting..";
@@ -60,7 +74,9 @@ const StartShift = ({ route, navigation }) => {
           .then((resp) => {})
           .catch((err) => alert("There is problem"));
       }, 60000);
-      return () => clearInterval(interval);
+      return () => {
+        clearInterval(interval), ac.abort();
+      };
     })();
   }, []);
 

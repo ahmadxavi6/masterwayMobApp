@@ -12,6 +12,7 @@ import React, { useState } from "react";
 const Home1 = ({ route, navigation }) => {
   const worker = React.useContext(NetworkContext);
   const [has, setHas] = useState(false);
+  const [counter, setCounter] = useState(false);
   var today = new Date();
   var date =
     today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
@@ -67,12 +68,15 @@ const Home1 = ({ route, navigation }) => {
   }
 
   const startShiftPressed = async () => {
-    console.log(has);
-    if (has === true) {
+    if (has === true && counter === false) {
+      setCounter(true);
       navigation.navigate("StartShift", { worker: worker });
     } else {
-      alert("You dont have a Shift today");
+      alert("You have already finished your shift");
     }
+  };
+  const workHours = async () => {
+    navigation.navigate("MounthHours", { worker: worker });
   };
   return (
     <SafeAreaView style={styles.body}>
@@ -83,6 +87,11 @@ const Home1 = ({ route, navigation }) => {
           type="FORTH"
           onPress={startShiftPressed}
           text="Start Your Shift "
+        ></Custombutton>
+        <Custombutton
+          type="FORTH"
+          onPress={workHours}
+          text="Month Work Hours "
         ></Custombutton>
       </View>
     </SafeAreaView>

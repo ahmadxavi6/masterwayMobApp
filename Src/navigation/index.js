@@ -11,6 +11,7 @@ import ChangePassword from "../Screens/Changepassword";
 import { NetworkContext } from "../Context/NetworkContext";
 import StartShift from "../Screens/StartShift/StartShift";
 import EditProfile from "../Screens/EditProfile";
+import MounthHours from "../Screens/MonthHours";
 import SendShifts from "../Screens/SendShifts";
 
 const Stack = createNativeStackNavigator();
@@ -39,6 +40,7 @@ const Navigation = () => {
         <Stack.Screen name="EditProfile" component={EditProfile}></Stack.Screen>
         <Stack.Screen name="SendShifts" component={SendShifts}></Stack.Screen>
         <Stack.Screen name="StartShift" component={StartShift}></Stack.Screen>
+        <Stack.Screen name="MounthHours" component={MounthHours}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
