@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
 import axios from "axios";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { NetworkContext } from "../../Context/NetworkContext";
 import {
   StyleSheet,
