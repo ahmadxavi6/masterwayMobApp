@@ -71,8 +71,10 @@ const Home1 = ({ route, navigation }) => {
     if (has === true && counter === false) {
       setCounter(true);
       navigation.navigate("StartShift", { worker: worker });
-    } else {
+    } else if (has == true) {
       alert("You have already finished your shift");
+    } else {
+      alert("You dont have a shift today");
     }
   };
   const workHours = async () => {
