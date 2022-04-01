@@ -1,32 +1,44 @@
-import { View, Text, FlatList, StyleSheet, SafeAreaView } from "react-native";
+import { Text, FlatList, StyleSheet, SafeAreaView } from "react-native";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import Custombutton from "../../Components/Custombutton";
+import { Picker } from "@react-native-picker/picker";
 
 const MounthHours = ({ route, navigation }) => {
   const worker = route.params;
-  user = { email: "", month: "" };
-  let total = 5;
+
+  const d = new Date();
+  let s = d.getMonth() + 1;
+  let y = d.getFullYear();
+  const [ye, setYe] = useState(y);
+  const [mo, setMo] = useState("1");
+
+  let inUser = {
+    email: worker.worker.worker.email,
+    month: "/" + mo + "/" + ye,
+  };
+  const [user, setUser] = useState(inUser);
+
   let min = 0;
   let sec = 0;
   let hour1 = 0;
   let tempsec = 0;
   let tempmin = 0;
   let temphour = 0;
-  user.email = worker.worker.worker.email;
   const [arr, setArr] = useState("");
-  const d = new Date();
-  let s = d.getMonth() + 1;
-  user.month = "/" + s + "/";
+
   useEffect(async () => {
+    user.email = worker.worker.worker.email;
+    user.month = "/" + mo + "/" + ye;
+    console.log(user);
     await axios
       .patch("https://masterway.herokuapp.com/workers/hours/", user)
       .then((resp) => {
         setArr(resp.data.hours);
       })
-      .catch((err) => alert("The code is not correct"));
-  }, []);
+      .catch((err) => alert("There  is a problem"));
+  }, [mo, ye]);
+
   for (let i = 0; i < arr.length; i++) {
     tempsec =
       tempsec + parseInt(arr[i].hour[6]) * 10 + parseInt(arr[i].hour[7]);
@@ -49,6 +61,36 @@ const MounthHours = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Picker
+        selectedValue={ye}
+        onValueChange={(itemValue, itemIndex) => {
+          setYe(itemValue);
+        }}
+      >
+        <Picker.Item label="2022" value="2022" />
+        <Picker.Item label="2023" value="2023" />
+        <Picker.Item label="2024" value="2024" />
+        <Picker.Item label="2025" value="2025" />
+        <Picker.Item label="2026" value="2026" />
+      </Picker>
+      <Picker
+        selectedValue={mo}
+        onValueChange={(itemValue, itemIndex) => setMo(itemValue)}
+      >
+        <Picker.Item label="1" value="1" />
+        <Picker.Item label="2" value="2" />
+        <Picker.Item label="3" value="3" />
+        <Picker.Item label="4" value="4" />
+        <Picker.Item label="5" value="5" />
+        <Picker.Item label="6" value="6" />
+        <Picker.Item label="7" value="7" />
+        <Picker.Item label="8" value="8" />
+        <Picker.Item label="9" value="9" />
+        <Picker.Item label="10" value="10" />
+        <Picker.Item label="11" value="11" />
+        <Picker.Item label="12" value="12" />
+      </Picker>
+
       <FlatList
         data={arr}
         renderItem={({ item }) => (
