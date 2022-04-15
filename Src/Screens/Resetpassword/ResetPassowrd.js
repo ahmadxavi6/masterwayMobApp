@@ -69,12 +69,12 @@ const ResetPassword = ({ route, navigation }) => {
       <Custombutton
         text="Confirm"
         onPress={handleSubmit(onConfirmPressed)}
-        type="SECONDARY"
+        type="PRIMARY"
       ></Custombutton>
       <Custombutton
         text="Send Again"
         onPress={handleSubmit(onSendPressed)}
-        type="PRIMARY"
+        type="SECONDARY"
       ></Custombutton>
     </View>
   );
@@ -83,6 +83,8 @@ const Styles = StyleSheet.create({
   root: {
     alignItems: "center",
     padding: 20,
+    backgroundColor: "#82a6e0",
+    flex: 1,
   },
   logo: {
     width: "70%",

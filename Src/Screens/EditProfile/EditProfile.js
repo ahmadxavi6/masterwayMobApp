@@ -1,7 +1,6 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { StyleSheet } from "react-native-web";
 import Custombutton from "../../Components/Custombutton";
 import Custominput from "../../Components/Custominput";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -107,11 +106,6 @@ const EditProfile = ({ route, navigation }) => {
   }
   return (
     <SafeAreaView style={Styles.root}>
-      <Custombutton
-        text="Change profile picture"
-        onPress={handleSubmit(uploadPic)}
-        type="FORTH"
-      ></Custombutton>
       <Text style={Styles.title}>Name</Text>
       <Custominput placeholder={"Full Name"} control={control} name="fName" />
       <Text style={Styles.title}>Email</Text>
@@ -129,6 +123,11 @@ const EditProfile = ({ route, navigation }) => {
         onPress={handleSubmit(onEditPress)}
         type="FORTH"
       ></Custombutton>
+      <Custombutton
+        text="Change profile picture"
+        onPress={handleSubmit(uploadPic)}
+        type="SECONDARY"
+      ></Custombutton>
     </SafeAreaView>
   );
 };
@@ -136,9 +135,8 @@ const Styles = StyleSheet.create({
   root: {
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#00BFFF",
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: "#82a6e0",
   },
   title1: {
     fontSize: 100,
@@ -150,9 +148,7 @@ const Styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#051c60",
-    margin: 10,
-    marginTop: 100,
+    color: "black",
   },
   buttonStyle: {
     backgroundColor: "#307ecc",

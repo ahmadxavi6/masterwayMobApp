@@ -62,19 +62,20 @@ const SendShifts = ({ route, navigation }) => {
         //Text with the Spinner
         textContent={"Sending Shifts...."}
         //Text style of the Spinner Text
-        textStyle={styles.spinnerTextStyle}
+        textStyle={Styles.spinnerTextStyle}
       />
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={Styles.container}>
       <ScrollView>
-        <Text styles={styles.name}>Sunday</Text>
+        <Text style={Styles.name}>Sunday</Text>
 
         <Picker
           selectedValue={sun}
           onValueChange={(itemValue, itemIndex) => setSun(itemValue)}
+          style={{ color: "#feeb10" }}
         >
           <Picker.Item label="OFF" value="OFF" />
           <Picker.Item label="6:00-16:00" value="6:00-16:00" />
@@ -82,11 +83,12 @@ const SendShifts = ({ route, navigation }) => {
           <Picker.Item label="00:00-06:00" value="00:00-06:00" />
           <Picker.Item label="ALL DAY" value="ALL DAY" />
         </Picker>
-        <Text styles={styles.name}>Monday</Text>
+        <Text style={Styles.name}>Monday</Text>
 
         <Picker
           selectedValue={mon}
           onValueChange={(itemValue, itemIndex) => setMon(itemValue)}
+          style={{ color: "#feeb10" }}
         >
           <Picker.Item label="OFF" value="OFF" />
           <Picker.Item label="6:00-16:00" value="6:00-16:00" />
@@ -94,11 +96,12 @@ const SendShifts = ({ route, navigation }) => {
           <Picker.Item label="00:00-06:00" value="00:00-06:00" />
           <Picker.Item label="ALL DAY" value="ALL DAY" />
         </Picker>
-        <Text styles={styles.name}>Tuesday</Text>
+        <Text style={Styles.name}>Tuesday</Text>
 
         <Picker
           selectedValue={tue}
           onValueChange={(itemValue, itemIndex) => setTue(itemValue)}
+          style={{ color: "#feeb10" }}
         >
           <Picker.Item label="OFF" value="OFF" />
           <Picker.Item label="6:00-16:00" value="6:00-16:00" />
@@ -106,11 +109,12 @@ const SendShifts = ({ route, navigation }) => {
           <Picker.Item label="00:00-06:00" value="00:00-06:00" />
           <Picker.Item label="ALL DAY" value="ALL DAY" />
         </Picker>
-        <Text styles={styles.name}>Wednesday</Text>
+        <Text style={Styles.name}>Wednesday</Text>
 
         <Picker
           selectedValue={wed}
           onValueChange={(itemValue, itemIndex) => setWed(itemValue)}
+          style={{ color: "#feeb10" }}
         >
           <Picker.Item label="OFF" value="OFF" />
           <Picker.Item label="6:00-16:00" value="6:00-16:00" />
@@ -118,11 +122,12 @@ const SendShifts = ({ route, navigation }) => {
           <Picker.Item label="00:00-06:00" value="00:00-06:00" />
           <Picker.Item label="ALL DAY" value="ALL DAY" />
         </Picker>
-        <Text styles={styles.name}>Thursday</Text>
+        <Text style={Styles.name}>Thursday</Text>
 
         <Picker
           selectedValue={thur}
           onValueChange={(itemValue, itemIndex) => setThur(itemValue)}
+          style={{ color: "#feeb10" }}
         >
           <Picker.Item label="OFF" value="OFF" />
           <Picker.Item label="6:00-16:00" value="6:00-16:00" />
@@ -130,11 +135,12 @@ const SendShifts = ({ route, navigation }) => {
           <Picker.Item label="00:00-06:00" value="00:00-06:00" />
           <Picker.Item label="ALL DAY" value="ALL DAY" />
         </Picker>
-        <Text styles={styles.name}>Friday</Text>
+        <Text style={Styles.name}>Friday</Text>
 
         <Picker
           selectedValue={fri}
           onValueChange={(itemValue, itemIndex) => setFri(itemValue)}
+          style={{ color: "#feeb10" }}
         >
           <Picker.Item label="OFF" value="OFF" />
           <Picker.Item label="6:00-16:00" value="6:00-16:00" />
@@ -142,11 +148,12 @@ const SendShifts = ({ route, navigation }) => {
           <Picker.Item label="00:00-06:00" value="00:00-06:00" />
           <Picker.Item label="ALL DAY" value="ALL DAY" />
         </Picker>
-        <Text styles={styles.name}>Saturday</Text>
+        <Text style={Styles.name}>Saturday</Text>
 
         <Picker
           selectedValue={sat}
           onValueChange={(itemValue, itemIndex) => setSat(itemValue)}
+          style={{ color: "#feeb10" }}
         >
           <Picker.Item label="OFF" value="OFF" />
           <Picker.Item label="6:00-16:00" value="6:00-16:00" />
@@ -164,22 +171,19 @@ const SendShifts = ({ route, navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
+const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 40,
-    fontSize: 30,
+    paddingTop: 20,
+    backgroundColor: "#82a6e0",
   },
   name: {
     marginTop: 10,
     marginLeft: 10,
-    fontSize: 45,
-    color: "#696969",
+    fontSize: 20,
+
+    color: "black",
     fontWeight: "600",
-  },
-  bodyContent: {
-    marginVertical: 10,
-    alignItems: "center",
   },
 });
 

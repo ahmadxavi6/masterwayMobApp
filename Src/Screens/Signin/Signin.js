@@ -57,7 +57,7 @@ const Signin = () => {
       <Image
         source={Logo}
         resizeMode="contain"
-        style={(Styles.logo, { height: height * 0.3 })}
+        style={(Styles.logo, { height: height * 0.5 })}
       ></Image>
       <Custominput
         rules={{ required: "Email is Required" }}
@@ -90,12 +90,10 @@ const Styles = StyleSheet.create({
   root: {
     alignItems: "center",
     padding: 20,
+    flex: 1,
+    backgroundColor: "#82a6e0",
   },
-  logo: {
-    width: "70%",
-    maxWidth: 300,
-    maxHeight: 300,
-  },
+  logo: { width: "50%" },
   spinnerTextStyle: {
     color: "#FFF",
   },

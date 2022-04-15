@@ -80,6 +80,8 @@ const Styles = StyleSheet.create({
   root: {
     alignItems: "center",
     padding: 20,
+    backgroundColor: "#82a6e0",
+    flex: 1,
   },
   logo: {
     width: "70%",

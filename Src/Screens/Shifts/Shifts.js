@@ -2,64 +2,89 @@ import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import React from "react";
 import { NetworkContext } from "../../Context/NetworkContext";
 import { StyleSheet } from "react-native";
+import Custombutton from "../../Components/Custombutton";
+import { useForm } from "react-hook-form";
 
 const Shifts = ({ route, navigation }) => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const worker = React.useContext(NetworkContext);
   const SendShifts = () => {
     navigation.navigate("SendShifts", { worker: worker });
   };
 
   return (
-    <SafeAreaView style={styles.bodyContent}>
-      <Text style={styles.description}>
-        Sunday: {worker.worker.weekShifts.Sun.hours}
+    <SafeAreaView style={Styles.bodyContent}>
+      <Text style={Styles.description}>
+        Sunday:{"  "} {worker.worker.weekShifts.Sun.hours}
       </Text>
-      <Text style={styles.info}>Info: {worker.worker.weekShifts.Sun.info}</Text>
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Sun.info}
+      </Text>
 
-      <Text style={styles.description}>
-        Monday: {worker.worker.weekShifts.Mon.hours}
+      <Text style={Styles.description}>
+        Monday:{"  "} {worker.worker.weekShifts.Mon.hours}
       </Text>
-      <Text style={styles.info}>Info: {worker.worker.weekShifts.Mon.info}</Text>
-      <Text style={styles.description}>
-        Tuesday: {worker.worker.weekShifts.Tue.hours}
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Mon.info}
       </Text>
-      <Text style={styles.info}>Info: {worker.worker.weekShifts.Tue.info}</Text>
-      <Text style={styles.description}>
-        Wednesday: {worker.worker.weekShifts.Wed.hours}
+      <Text style={Styles.description}>
+        Tuesday: {"  "}
+        {worker.worker.weekShifts.Tue.hours}
       </Text>
-      <Text style={styles.info}>Info: {worker.worker.weekShifts.Wed.info}</Text>
-      <Text style={styles.description}>
-        Thursday: {worker.worker.weekShifts.Thur.hours}
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Tue.info}
       </Text>
-      <Text style={styles.info}>
-        Info: {worker.worker.weekShifts.Thur.info}
+      <Text style={Styles.description}>
+        Wednesday: {"  "}
+        {worker.worker.weekShifts.Wed.hours}
       </Text>
-      <Text style={styles.description}>
-        Friday: {worker.worker.weekShifts.Fri.hours}
+      <Text style={Styles.info}>
+        Info:{"  "} {worker.worker.weekShifts.Wed.info}
       </Text>
-      <Text style={styles.info}>Info: {worker.worker.weekShifts.Fri.info}</Text>
-      <Text style={styles.description}>
-        Saturday: {worker.worker.weekShifts.Sat.hours}
+      <Text style={Styles.description}>
+        Thursday:{"  "} {worker.worker.weekShifts.Thur.hours}
       </Text>
-      <Text style={styles.info}>Info: {worker.worker.weekShifts.Sat.info}</Text>
-      <TouchableOpacity style={styles.buttonContainer} onPress={SendShifts}>
-        <Text>Send your requested shifts</Text>
-      </TouchableOpacity>
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Thur.info}
+      </Text>
+      <Text style={Styles.description}>
+        Friday: {"  "}
+        {worker.worker.weekShifts.Fri.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Fri.info}
+      </Text>
+      <Text style={Styles.description}>
+        Saturday:{"  "} {worker.worker.weekShifts.Sat.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info:{"  "} {worker.worker.weekShifts.Sat.info}
+      </Text>
+      <Custombutton
+        text="Send your requested shifts"
+        onPress={handleSubmit(SendShifts)}
+        type="FORTH"
+      ></Custombutton>
     </SafeAreaView>
   );
 };
-const styles = StyleSheet.create({
-  name: {
-    fontSize: 22,
-    color: "#FFFFFF",
-    fontWeight: "600",
-  },
+const Styles = StyleSheet.create({
   body: {
     marginTop: 40,
   },
   bodyContent: {
-    alignItems: "center",
-    marginVertical: 10,
+    paddingTop: 20,
+    flex: 1,
+    backgroundColor: "#82a6e0",
   },
   name: {
     marginTop: 10,
@@ -68,15 +93,16 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   info: {
-    fontSize: 16,
-    color: "#00BFFF",
+    fontSize: 18,
+    color: "black",
   },
 
   description: {
-    fontSize: 16,
-    color: "#696969",
+    fontSize: 18,
+    color: "black",
     marginVertical: 10,
   },
+
   buttonContainer: {
     marginTop: 10,
     height: 45,
@@ -86,18 +112,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     borderRadius: 30,
-    backgroundColor: "#00BFFF",
-  },
-  buttonContainer1: {
-    marginTop: 10,
-    height: 45,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 20,
-    width: 250,
-    borderRadius: 30,
-    backgroundColor: "#00BFFF",
+    fontSize: 18,
+    backgroundColor: "#3f5bae",
   },
 });
 export default Shifts;

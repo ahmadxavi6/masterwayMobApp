@@ -112,6 +112,8 @@ const StartShift = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    backgroundColor: "#82a6e0",
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },

@@ -122,10 +122,11 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 22,
-    color: "#FFFFFF",
+    color: "black",
     fontWeight: "600",
   },
   body: {
+    backgroundColor: "#82a6e0",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -134,21 +135,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 30,
   },
-  name: {
-    marginTop: 10,
-    fontSize: 28,
-    color: "#696969",
-    fontWeight: "bold",
-  },
+
   info: {
     fontSize: 16,
-    color: "#00BFFF",
+    color: "black",
     marginTop: 10,
   },
 
   description: {
     fontSize: 16,
-    color: "#696969",
+    color: "black",
     marginTop: 10,
     textAlign: "center",
   },
