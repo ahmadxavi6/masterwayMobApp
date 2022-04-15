@@ -20,7 +20,7 @@ const Home = ({ route, navigation }) => {
       <Tab.Navigator
         activeColor="#f0edf6"
         inactiveColor="black"
-        barStyle={{ backgroundColor: "#694fad" }}
+        barStyle={{ backgroundColor: "#3f5bae" }}
       >
         <Tab.Screen
           options={{

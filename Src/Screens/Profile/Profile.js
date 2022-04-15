@@ -76,13 +76,13 @@ const Profile = ({ route, navigation }) => {
           </Text>
 
           <TouchableOpacity style={styles.buttonContainer} onPress={onPress1}>
-            <Text>Change Password</Text>
+            <Text style={styles.x}>Change Password</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
-            <Text>Edit Profile</Text>
+            <Text style={styles.x}>Edit Profile</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonContainer} onPress={update}>
-            <Text>Refresh Profile</Text>
+            <Text style={styles.x}>Refresh Profile</Text>
           </TouchableOpacity>
         </SafeAreaView>
       </SafeAreaView>
@@ -90,8 +90,12 @@ const Profile = ({ route, navigation }) => {
   );
 };
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#82a6e0",
+  },
   header: {
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#3f5bae",
     height: 200,
   },
   avatar: {
@@ -99,17 +103,13 @@ const styles = StyleSheet.create({
     height: 130,
     borderRadius: 63,
     borderWidth: 4,
-    borderColor: "white",
+    borderColor: "#a56ca7",
     marginBottom: 10,
     alignSelf: "center",
     position: "absolute",
     marginTop: 130,
   },
-  name: {
-    fontSize: 22,
-    color: "#FFFFFF",
-    fontWeight: "600",
-  },
+
   body: {
     marginTop: 40,
   },
@@ -120,18 +120,18 @@ const styles = StyleSheet.create({
   name: {
     marginTop: 10,
     fontSize: 28,
-    color: "#696969",
+    color: "black",
     fontWeight: "600",
   },
   info: {
-    fontSize: 16,
-    color: "#00BFFF",
+    fontSize: 20,
+    color: "black",
     marginTop: 10,
   },
 
   description: {
-    fontSize: 16,
-    color: "#696969",
+    fontSize: 20,
+    color: "black",
     marginTop: 10,
     textAlign: "center",
   },
@@ -144,7 +144,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     borderRadius: 30,
-    backgroundColor: "#00BFFF",
+    fontSize: 18,
+    backgroundColor: "#3f5bae",
+  },
+  x: {
+    fontSize: 18,
   },
 });
 export default Profile;

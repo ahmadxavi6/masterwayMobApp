@@ -1,7 +1,6 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { StyleSheet } from "react-native-web";
 import Custombutton from "../../Components/Custombutton";
 import Custominput from "../../Components/Custominput";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -53,7 +52,7 @@ const ChangePassword = ({ route, navigation }) => {
   }
   return (
     <SafeAreaView style={Styles.root}>
-      <Text style={Styles.title}>Chosse your new passowrd</Text>
+      <Text style={Styles.title}>Choose your new passowrd</Text>
       <Custominput
         placeholder={"Chosse new password"}
         control={control}
@@ -81,7 +80,7 @@ const Styles = StyleSheet.create({
   root: {
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#82a6e0",
     flex: 1,
   },
   logo: {
@@ -92,7 +91,7 @@ const Styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#051c60",
+    color: "black",
     margin: 10,
   },
 });

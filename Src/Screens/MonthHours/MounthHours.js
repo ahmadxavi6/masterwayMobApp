@@ -122,9 +122,10 @@ const MounthHours = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#82a6e0",
   },
   item: {
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#3f5bae",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
