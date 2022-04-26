@@ -53,40 +53,46 @@ const Signin = () => {
     );
   }
   return (
-    <View style={Styles.root}>
-      <Image
-        source={Logo}
-        resizeMode="contain"
-        style={(Styles.logo, { height: height * 0.5 })}
-      ></Image>
-      <Custominput
-        rules={{ required: "Email is Required" }}
-        placeholder="Email"
-        control={control}
-        name="email"
-      />
-      <Custominput
-        placeholder="Password"
-        name="password"
-        rules={{ required: "Password is Required" }}
-        control={control}
-        secureTextEntry={true}
-      />
+    <View style={Styles.back}>
+      <View style={Styles.root}>
+        <Image
+          source={Logo}
+          resizeMode="contain"
+          style={(Styles.logo, { height: height * 0.5 })}
+        ></Image>
+        <Custominput
+          rules={{ required: "Email is Required" }}
+          placeholder="Email"
+          control={control}
+          name="email"
+        />
+        <Custominput
+          placeholder="Password"
+          name="password"
+          rules={{ required: "Password is Required" }}
+          control={control}
+          secureTextEntry={true}
+        />
 
-      <Custombutton
-        text="Sign In"
-        type="PRIMARY"
-        onPress={handleSubmit(onSignInPressed)}
-      ></Custombutton>
-      <Custombutton
-        text="Forgot Password?"
-        onPress={onForgotPasswordPressed}
-        type="TERTIARY"
-      ></Custombutton>
+        <Custombutton
+          text="Sign In"
+          type="PRIMARY"
+          onPress={handleSubmit(onSignInPressed)}
+        ></Custombutton>
+        <Custombutton
+          text="Forgot Password?"
+          onPress={onForgotPasswordPressed}
+          type="TERTIARY"
+        ></Custombutton>
+      </View>
     </View>
   );
 };
 const Styles = StyleSheet.create({
+  back: {
+    backgroundColor: "#82a6e0",
+    flex: 1,
+  },
   root: {
     alignItems: "center",
     padding: 20,

@@ -105,33 +105,39 @@ const EditProfile = ({ route, navigation }) => {
     );
   }
   return (
-    <SafeAreaView style={Styles.root}>
-      <Text style={Styles.title}>Name</Text>
-      <Custominput placeholder={"Full Name"} control={control} name="fName" />
-      <Text style={Styles.title}>Email</Text>
-      <Custominput placeholder={"Email"} control={control} name="email" />
-      <Text style={Styles.title}>Age</Text>
-      <Custominput placeholder={"Age"} control={control} name="age" />
-      <Text style={Styles.title}>Phone Number</Text>
-      <Custominput
-        placeholder={"Phone Number"}
-        control={control}
-        name="phoneNumber"
-      />
-      <Custombutton
-        text="Edit your profile"
-        onPress={handleSubmit(onEditPress)}
-        type="FORTH"
-      ></Custombutton>
-      <Custombutton
-        text="Change profile picture"
-        onPress={handleSubmit(uploadPic)}
-        type="SECONDARY"
-      ></Custombutton>
-    </SafeAreaView>
+    <View style={Styles.back}>
+      <SafeAreaView style={Styles.root}>
+        <Text style={Styles.title}>Name</Text>
+        <Custominput placeholder={"Full Name"} control={control} name="fName" />
+        <Text style={Styles.title}>Email</Text>
+        <Custominput placeholder={"Email"} control={control} name="email" />
+        <Text style={Styles.title}>Age</Text>
+        <Custominput placeholder={"Age"} control={control} name="age" />
+        <Text style={Styles.title}>Phone Number</Text>
+        <Custominput
+          placeholder={"Phone Number"}
+          control={control}
+          name="phoneNumber"
+        />
+        <Custombutton
+          text="Edit your profile"
+          onPress={handleSubmit(onEditPress)}
+          type="FORTH"
+        ></Custombutton>
+        <Custombutton
+          text="Change profile picture"
+          onPress={handleSubmit(uploadPic)}
+          type="SECONDARY"
+        ></Custombutton>
+      </SafeAreaView>
+    </View>
   );
 };
 const Styles = StyleSheet.create({
+  back: {
+    backgroundColor: "#82a6e0",
+    flex: 1,
+  },
   root: {
     alignItems: "center",
     padding: 20,

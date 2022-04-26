@@ -1,7 +1,10 @@
 {
   "expo": {
     "name": "Master Way",
-   
+    "androidStatusBar": {
+      "backgroundColor": "#82a6e0",
+      "translucent": false
+    },
     "plugins": [
       [
         "expo-image-picker",
@@ -12,7 +15,7 @@
     ],
     
     "slug": "MasterWay",
-    "version": "1.0.0",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -38,7 +41,7 @@
     },
     "android": {
       "package":"com.masterway",
-      "versionCode":1,
+      "versionCode":5,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

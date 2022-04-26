@@ -62,24 +62,30 @@ const ResetPassword = ({ route, navigation }) => {
     );
   }
   return (
-    <View style={Styles.root}>
-      <Text style={Styles.title}>Confirm your email</Text>
-      <Custominput placeholder="code" control={control} name="code" />
+    <View style={Styles.back}>
+      <View style={Styles.root}>
+        <Text style={Styles.title}>Confirm your email</Text>
+        <Custominput placeholder="code" control={control} name="code" />
 
-      <Custombutton
-        text="Confirm"
-        onPress={handleSubmit(onConfirmPressed)}
-        type="PRIMARY"
-      ></Custombutton>
-      <Custombutton
-        text="Send Again"
-        onPress={handleSubmit(onSendPressed)}
-        type="SECONDARY"
-      ></Custombutton>
+        <Custombutton
+          text="Confirm"
+          onPress={handleSubmit(onConfirmPressed)}
+          type="PRIMARY"
+        ></Custombutton>
+        <Custombutton
+          text="Send Again"
+          onPress={handleSubmit(onSendPressed)}
+          type="SECONDARY"
+        ></Custombutton>
+      </View>
     </View>
   );
 };
 const Styles = StyleSheet.create({
+  back: {
+    backgroundColor: "#82a6e0",
+    flex: 1,
+  },
   root: {
     alignItems: "center",
     padding: 20,

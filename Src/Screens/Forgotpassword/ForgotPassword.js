@@ -45,24 +45,30 @@ const ForgotPassword = ({ navigation }) => {
   }
 
   return (
-    <View style={Styles.root}>
-      <Text style={Styles.title}>Reset your password</Text>
-      <Custominput
-        placeholder={"Email"}
-        rules={{ required: "Email is Required" }}
-        control={control}
-        name="email"
-      />
+    <View style={Styles.back}>
+      <View style={Styles.root}>
+        <Text style={Styles.title}>Reset your password</Text>
+        <Custominput
+          placeholder={"Email"}
+          rules={{ required: "Email is Required" }}
+          control={control}
+          name="email"
+        />
 
-      <Custombutton
-        text="Send Reset Password Email"
-        onPress={handleSubmit(onForgotPasswordPressed)}
-        type="SECONDARY"
-      ></Custombutton>
+        <Custombutton
+          text="Send Reset Password Email"
+          onPress={handleSubmit(onForgotPasswordPressed)}
+          type="SECONDARY"
+        ></Custombutton>
+      </View>
     </View>
   );
 };
 const Styles = StyleSheet.create({
+  back: {
+    backgroundColor: "#82a6e0",
+    flex: 1,
+  },
   root: {
     alignItems: "center",
     padding: 20,

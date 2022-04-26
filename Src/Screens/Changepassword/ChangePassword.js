@@ -51,32 +51,38 @@ const ChangePassword = ({ route, navigation }) => {
     );
   }
   return (
-    <SafeAreaView style={Styles.root}>
-      <Text style={Styles.title}>Choose your new passowrd</Text>
-      <Custominput
-        placeholder={"Chosse new password"}
-        control={control}
-        name="password1"
-        secureTextEntry={true}
-        rules={{ required: "Password is Required" }}
-      />
-      <Custominput
-        placeholder={"Confirm your password"}
-        control={control}
-        secureTextEntry={true}
-        rules={{ required: "Confirm password is Required" }}
-        name="password2"
-      />
+    <View style={Styles.back}>
+      <SafeAreaView style={Styles.root}>
+        <Text style={Styles.title}>Choose your new passowrd</Text>
+        <Custominput
+          placeholder={"Chosse new password"}
+          control={control}
+          name="password1"
+          secureTextEntry={true}
+          rules={{ required: "Password is Required" }}
+        />
+        <Custominput
+          placeholder={"Confirm your password"}
+          control={control}
+          secureTextEntry={true}
+          rules={{ required: "Confirm password is Required" }}
+          name="password2"
+        />
 
-      <Custombutton
-        text="Change Password"
-        onPress={handleSubmit(onChangePasswordPressed)}
-        type="FORTH"
-      ></Custombutton>
-    </SafeAreaView>
+        <Custombutton
+          text="Change Password"
+          onPress={handleSubmit(onChangePasswordPressed)}
+          type="FORTH"
+        ></Custombutton>
+      </SafeAreaView>
+    </View>
   );
 };
 const Styles = StyleSheet.create({
+  back: {
+    backgroundColor: "#82a6e0",
+    flex: 1,
+  },
   root: {
     alignItems: "center",
     padding: 20,
