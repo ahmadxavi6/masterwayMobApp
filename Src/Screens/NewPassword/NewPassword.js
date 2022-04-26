@@ -51,32 +51,38 @@ const NewPassword = ({ route, navigation }) => {
     );
   }
   return (
-    <View style={Styles.root}>
-      <Text style={Styles.title}>Change your password</Text>
-      <Custominput
-        placeholder={"Chosse new password"}
-        control={control}
-        name="password1"
-        secureTextEntry={true}
-        rules={{ required: "Password is Required" }}
-      />
-      <Custominput
-        placeholder={"Confirm your password"}
-        control={control}
-        secureTextEntry={true}
-        rules={{ required: "Confirm password is Required" }}
-        name="password2"
-      />
+    <View style={Styles.back}>
+      <View style={Styles.root}>
+        <Text style={Styles.title}>Change your password</Text>
+        <Custominput
+          placeholder={"Chosse new password"}
+          control={control}
+          name="password1"
+          secureTextEntry={true}
+          rules={{ required: "Password is Required" }}
+        />
+        <Custominput
+          placeholder={"Confirm your password"}
+          control={control}
+          secureTextEntry={true}
+          rules={{ required: "Confirm password is Required" }}
+          name="password2"
+        />
 
-      <Custombutton
-        text="Change Password"
-        onPress={handleSubmit(onChangePasswordPressed)}
-        type="SECONDARY"
-      ></Custombutton>
+        <Custombutton
+          text="Change Password"
+          onPress={handleSubmit(onChangePasswordPressed)}
+          type="SECONDARY"
+        ></Custombutton>
+      </View>
     </View>
   );
 };
 const Styles = StyleSheet.create({
+  back: {
+    backgroundColor: "#82a6e0",
+    flex: 1,
+  },
   root: {
     alignItems: "center",
     padding: 20,

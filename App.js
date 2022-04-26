@@ -13,15 +13,14 @@ import Navigation from "./Src/navigation";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.root}>
+    <View style={styles.root}>
       <Navigation />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    paddingTop: Platform.OS === "android" ? 25 : 0,
   },
 });

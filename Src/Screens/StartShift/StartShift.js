@@ -81,35 +81,41 @@ const StartShift = ({ route, navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <Text style={styles.title}>Your Shift has started</Text>
-        <Text style={styles.title}>Dont leave this page in the app</Text>
-        <Text style={styles.title}>in order to keep track of your hours</Text>
-        <View style={styles.sectionStyle}>
-          <Stopwatch
-            laps
-            msecs
-            start={isStopwatchStart}
-            options={options}
-            getTime={(time) => {
-              setTime(time);
-            }}
-          />
-          <Custombutton
-            text="Finish your shift "
-            type="FORTH"
-            onPress={sendTime}
-          >
-            <Text>End Shift</Text>
-          </Custombutton>
+    <View style={styles.back}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Your Shift has started</Text>
+          <Text style={styles.title}>Dont leave this page in the app</Text>
+          <Text style={styles.title}>in order to keep track of your hours</Text>
+          <View style={styles.sectionStyle}>
+            <Stopwatch
+              laps
+              msecs
+              start={isStopwatchStart}
+              options={options}
+              getTime={(time) => {
+                setTime(time);
+              }}
+            />
+            <Custombutton
+              text="Finish your shift "
+              type="FORTH"
+              onPress={sendTime}
+            >
+              <Text>End Shift</Text>
+            </Custombutton>
+          </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  back: {
+    backgroundColor: "#82a6e0",
+    flex: 1,
+  },
   container: {
     padding: 10,
     backgroundColor: "#82a6e0",

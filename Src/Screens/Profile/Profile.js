@@ -6,6 +6,7 @@ import {
   Text,
   SafeAreaView,
   Image,
+  View,
   TouchableOpacity,
 } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
@@ -62,34 +63,40 @@ const Profile = ({ route, navigation }) => {
     );
   }
   return (
-    <SafeAreaView style={styles.container}>
-      <SafeAreaView style={styles.header}></SafeAreaView>
-      <Image style={styles.avatar} source={{ uri: ed }} />
-      <SafeAreaView style={styles.body}>
-        <SafeAreaView style={styles.bodyContent}>
-          <Text style={styles.name}>{state.fName}</Text>
-          <Text style={styles.info}>{state.ID}</Text>
-          <Text style={styles.description}>Age: {state.age}</Text>
-          <Text style={styles.description}>Email: {state.email}</Text>
-          <Text style={styles.description}>
-            Phone Number: {state.phoneNumber}
-          </Text>
+    <View style={styles.back}>
+      <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.header}></SafeAreaView>
+        <Image style={styles.avatar} source={{ uri: ed }} />
+        <SafeAreaView style={styles.body}>
+          <SafeAreaView style={styles.bodyContent}>
+            <Text style={styles.name}>{state.fName}</Text>
+            <Text style={styles.info}>{state.ID}</Text>
+            <Text style={styles.description}>Age: {state.age}</Text>
+            <Text style={styles.description}>Email: {state.email}</Text>
+            <Text style={styles.description}>
+              Phone Number: {state.phoneNumber}
+            </Text>
 
-          <TouchableOpacity style={styles.buttonContainer} onPress={onPress1}>
-            <Text style={styles.x}>Change Password</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
-            <Text style={styles.x}>Edit Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonContainer} onPress={update}>
-            <Text style={styles.x}>Refresh Profile</Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} onPress={onPress1}>
+              <Text style={styles.x}>Change Password</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
+              <Text style={styles.x}>Edit Profile</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} onPress={update}>
+              <Text style={styles.x}>Refresh Profile</Text>
+            </TouchableOpacity>
+          </SafeAreaView>
         </SafeAreaView>
       </SafeAreaView>
-    </SafeAreaView>
+    </View>
   );
 };
 const styles = StyleSheet.create({
+  back: {
+    backgroundColor: "#82a6e0",
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: "#82a6e0",
