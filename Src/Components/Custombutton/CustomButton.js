@@ -1,6 +1,5 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
 import React from "react";
-import ButtonSpinner from "react-native-button-spinner";
 
 const CustomButton = ({ onPress, text, type }) => {
   return (
@@ -20,25 +19,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 5,
   },
-  container_PRIMARY: { backgroundColor: "#3f5bae" },
-  container_SECONDARY: { backgroundColor: "#a56ca7" },
+  container_PRIMARY: { backgroundColor: "#3700b3" },
+  container_SECONDARY: { backgroundColor: "#03dac5" },
   container_TERTIARY: { backgroundColor: "#feeb10" },
-  container_FORTH: { backgroundColor: "#3f5bae" },
+  container_FORTH: { backgroundColor: "red" },
   text: {
     fontWeight: "bold",
     fontSize: 18,
   },
   text_PRIMARY: {
-    color: "white",
+    color: "#03dac5",
     fontSize: 18,
   },
-  text_SECONDARY: { color: "black", fontSize: 18 },
+  text_SECONDARY: { color: "#3700b3", fontSize: 18 },
   text_TERTIARY: {
     color: "black",
     fontSize: 18,
   },
   text_FORTH: {
-    color: "black",
+    color: "#3700b3",
     fontSize: 18,
   },
 });

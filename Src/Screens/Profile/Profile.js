@@ -63,46 +63,40 @@ const Profile = ({ route, navigation }) => {
     );
   }
   return (
-    <View style={styles.back}>
-      <SafeAreaView style={styles.container}>
-        <SafeAreaView style={styles.header}></SafeAreaView>
-        <Image style={styles.avatar} source={{ uri: ed }} />
-        <SafeAreaView style={styles.body}>
-          <SafeAreaView style={styles.bodyContent}>
-            <Text style={styles.name}>{state.fName}</Text>
-            <Text style={styles.info}>{state.ID}</Text>
-            <Text style={styles.description}>Age: {state.age}</Text>
-            <Text style={styles.description}>Email: {state.email}</Text>
-            <Text style={styles.description}>
-              Phone Number: {state.phoneNumber}
-            </Text>
+    <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.header}></SafeAreaView>
+      <Image style={styles.avatar} source={{ uri: ed }} />
+      <SafeAreaView style={styles.body}>
+        <SafeAreaView style={styles.bodyContent}>
+          <Text style={styles.name}>{state.fName}</Text>
+          <Text style={styles.info}>{state.ID}</Text>
+          <Text style={styles.description}>Age: {state.age}</Text>
+          <Text style={styles.description}>Email: {state.email}</Text>
+          <Text style={styles.description}>
+            Phone Number: {state.phoneNumber}
+          </Text>
 
-            <TouchableOpacity style={styles.buttonContainer} onPress={onPress1}>
-              <Text style={styles.x}>Change Password</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
-              <Text style={styles.x}>Edit Profile</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={update}>
-              <Text style={styles.x}>Refresh Profile</Text>
-            </TouchableOpacity>
-          </SafeAreaView>
+          <TouchableOpacity style={styles.buttonContainer} onPress={onPress1}>
+            <Text style={styles.x}>Change Password</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
+            <Text style={styles.x}>Edit Profile</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonContainer} onPress={update}>
+            <Text style={styles.x}>Refresh Profile</Text>
+          </TouchableOpacity>
         </SafeAreaView>
       </SafeAreaView>
-    </View>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
-  back: {
-    backgroundColor: "#82a6e0",
-    flex: 1,
-  },
   container: {
     flex: 1,
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
   },
   header: {
-    backgroundColor: "#3f5bae",
+    backgroundColor: "#3700b3",
     height: 200,
   },
   avatar: {
@@ -127,20 +121,23 @@ const styles = StyleSheet.create({
   name: {
     marginTop: 10,
     fontSize: 28,
-    color: "black",
-    fontWeight: "600",
+    color: "#03dac5",
+
+    fontWeight: "bold",
   },
   info: {
     fontSize: 20,
-    color: "black",
+    color: "#03dac5",
     marginTop: 10,
+    fontWeight: "bold",
   },
 
   description: {
     fontSize: 20,
-    color: "black",
+    color: "#03dac5",
     marginTop: 10,
     textAlign: "center",
+    fontWeight: "bold",
   },
   buttonContainer: {
     marginTop: 10,
@@ -152,10 +149,11 @@ const styles = StyleSheet.create({
     width: 250,
     borderRadius: 30,
     fontSize: 18,
-    backgroundColor: "#3f5bae",
+    backgroundColor: "#3700b3",
   },
   x: {
     fontSize: 18,
+    color: "#03dac5",
   },
 });
 export default Profile;

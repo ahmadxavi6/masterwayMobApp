@@ -68,128 +68,122 @@ const SendShifts = ({ route, navigation }) => {
   }
 
   return (
-    <View style={Styles.back}>
-      <SafeAreaView style={Styles.container}>
-        <ScrollView>
-          <Text style={Styles.name}>Sunday</Text>
+    <SafeAreaView style={Styles.container}>
+      <ScrollView>
+        <Text style={Styles.name}>Sunday</Text>
 
-          <Picker
-            selectedValue={sun}
-            onValueChange={(itemValue, itemIndex) => setSun(itemValue)}
-            style={{ color: "#feeb10" }}
-          >
-            <Picker.Item label="OFF" value="OFF" />
-            <Picker.Item label="6:00-16:00" value="6:00-16:00" />
-            <Picker.Item label="16:00-00:00" value="16:00-00:00" />
-            <Picker.Item label="00:00-06:00" value="00:00-06:00" />
-            <Picker.Item label="ALL DAY" value="ALL DAY" />
-          </Picker>
-          <Text style={Styles.name}>Monday</Text>
+        <Picker
+          selectedValue={sun}
+          onValueChange={(itemValue, itemIndex) => setSun(itemValue)}
+          style={{ color: "#feeb10" }}
+        >
+          <Picker.Item label="OFF" value="OFF" />
+          <Picker.Item label="6:00-16:00" value="6:00-16:00" />
+          <Picker.Item label="16:00-00:00" value="16:00-00:00" />
+          <Picker.Item label="00:00-06:00" value="00:00-06:00" />
+          <Picker.Item label="ALL DAY" value="ALL DAY" />
+        </Picker>
+        <Text style={Styles.name}>Monday</Text>
 
-          <Picker
-            selectedValue={mon}
-            onValueChange={(itemValue, itemIndex) => setMon(itemValue)}
-            style={{ color: "#feeb10" }}
-          >
-            <Picker.Item label="OFF" value="OFF" />
-            <Picker.Item label="6:00-16:00" value="6:00-16:00" />
-            <Picker.Item label="16:00-00:00" value="16:00-00:00" />
-            <Picker.Item label="00:00-06:00" value="00:00-06:00" />
-            <Picker.Item label="ALL DAY" value="ALL DAY" />
-          </Picker>
-          <Text style={Styles.name}>Tuesday</Text>
+        <Picker
+          selectedValue={mon}
+          onValueChange={(itemValue, itemIndex) => setMon(itemValue)}
+          style={{ color: "#feeb10" }}
+        >
+          <Picker.Item label="OFF" value="OFF" />
+          <Picker.Item label="6:00-16:00" value="6:00-16:00" />
+          <Picker.Item label="16:00-00:00" value="16:00-00:00" />
+          <Picker.Item label="00:00-06:00" value="00:00-06:00" />
+          <Picker.Item label="ALL DAY" value="ALL DAY" />
+        </Picker>
+        <Text style={Styles.name}>Tuesday</Text>
 
-          <Picker
-            selectedValue={tue}
-            onValueChange={(itemValue, itemIndex) => setTue(itemValue)}
-            style={{ color: "#feeb10" }}
-          >
-            <Picker.Item label="OFF" value="OFF" />
-            <Picker.Item label="6:00-16:00" value="6:00-16:00" />
-            <Picker.Item label="16:00-00:00" value="16:00-00:00" />
-            <Picker.Item label="00:00-06:00" value="00:00-06:00" />
-            <Picker.Item label="ALL DAY" value="ALL DAY" />
-          </Picker>
-          <Text style={Styles.name}>Wednesday</Text>
+        <Picker
+          selectedValue={tue}
+          onValueChange={(itemValue, itemIndex) => setTue(itemValue)}
+          style={{ color: "#feeb10" }}
+        >
+          <Picker.Item label="OFF" value="OFF" />
+          <Picker.Item label="6:00-16:00" value="6:00-16:00" />
+          <Picker.Item label="16:00-00:00" value="16:00-00:00" />
+          <Picker.Item label="00:00-06:00" value="00:00-06:00" />
+          <Picker.Item label="ALL DAY" value="ALL DAY" />
+        </Picker>
+        <Text style={Styles.name}>Wednesday</Text>
 
-          <Picker
-            selectedValue={wed}
-            onValueChange={(itemValue, itemIndex) => setWed(itemValue)}
-            style={{ color: "#feeb10" }}
-          >
-            <Picker.Item label="OFF" value="OFF" />
-            <Picker.Item label="6:00-16:00" value="6:00-16:00" />
-            <Picker.Item label="16:00-00:00" value="16:00-00:00" />
-            <Picker.Item label="00:00-06:00" value="00:00-06:00" />
-            <Picker.Item label="ALL DAY" value="ALL DAY" />
-          </Picker>
-          <Text style={Styles.name}>Thursday</Text>
+        <Picker
+          selectedValue={wed}
+          onValueChange={(itemValue, itemIndex) => setWed(itemValue)}
+          style={{ color: "#feeb10" }}
+        >
+          <Picker.Item label="OFF" value="OFF" />
+          <Picker.Item label="6:00-16:00" value="6:00-16:00" />
+          <Picker.Item label="16:00-00:00" value="16:00-00:00" />
+          <Picker.Item label="00:00-06:00" value="00:00-06:00" />
+          <Picker.Item label="ALL DAY" value="ALL DAY" />
+        </Picker>
+        <Text style={Styles.name}>Thursday</Text>
 
-          <Picker
-            selectedValue={thur}
-            onValueChange={(itemValue, itemIndex) => setThur(itemValue)}
-            style={{ color: "#feeb10" }}
-          >
-            <Picker.Item label="OFF" value="OFF" />
-            <Picker.Item label="6:00-16:00" value="6:00-16:00" />
-            <Picker.Item label="16:00-00:00" value="16:00-00:00" />
-            <Picker.Item label="00:00-06:00" value="00:00-06:00" />
-            <Picker.Item label="ALL DAY" value="ALL DAY" />
-          </Picker>
-          <Text style={Styles.name}>Friday</Text>
+        <Picker
+          selectedValue={thur}
+          onValueChange={(itemValue, itemIndex) => setThur(itemValue)}
+          style={{ color: "#feeb10" }}
+        >
+          <Picker.Item label="OFF" value="OFF" />
+          <Picker.Item label="6:00-16:00" value="6:00-16:00" />
+          <Picker.Item label="16:00-00:00" value="16:00-00:00" />
+          <Picker.Item label="00:00-06:00" value="00:00-06:00" />
+          <Picker.Item label="ALL DAY" value="ALL DAY" />
+        </Picker>
+        <Text style={Styles.name}>Friday</Text>
 
-          <Picker
-            selectedValue={fri}
-            onValueChange={(itemValue, itemIndex) => setFri(itemValue)}
-            style={{ color: "#feeb10" }}
-          >
-            <Picker.Item label="OFF" value="OFF" />
-            <Picker.Item label="6:00-16:00" value="6:00-16:00" />
-            <Picker.Item label="16:00-00:00" value="16:00-00:00" />
-            <Picker.Item label="00:00-06:00" value="00:00-06:00" />
-            <Picker.Item label="ALL DAY" value="ALL DAY" />
-          </Picker>
-          <Text style={Styles.name}>Saturday</Text>
+        <Picker
+          selectedValue={fri}
+          onValueChange={(itemValue, itemIndex) => setFri(itemValue)}
+          style={{ color: "#feeb10" }}
+        >
+          <Picker.Item label="OFF" value="OFF" />
+          <Picker.Item label="6:00-16:00" value="6:00-16:00" />
+          <Picker.Item label="16:00-00:00" value="16:00-00:00" />
+          <Picker.Item label="00:00-06:00" value="00:00-06:00" />
+          <Picker.Item label="ALL DAY" value="ALL DAY" />
+        </Picker>
+        <Text style={Styles.name}>Saturday</Text>
 
-          <Picker
-            selectedValue={sat}
-            onValueChange={(itemValue, itemIndex) => setSat(itemValue)}
-            style={{ color: "#feeb10" }}
-          >
-            <Picker.Item label="OFF" value="OFF" />
-            <Picker.Item label="6:00-16:00" value="6:00-16:00" />
-            <Picker.Item label="16:00-00:00" value="16:00-00:00" />
-            <Picker.Item label="00:00-06:00" value="00:00-06:00" />
-            <Picker.Item label="ALL DAY" value="ALL DAY" />
-          </Picker>
-          <Custombutton
-            text="Send your shifts"
-            onPress={handleSubmit(onSendPress)}
-            type="FORTH"
-          ></Custombutton>
-        </ScrollView>
-      </SafeAreaView>
-    </View>
+        <Picker
+          selectedValue={sat}
+          onValueChange={(itemValue, itemIndex) => setSat(itemValue)}
+          style={{ color: "#feeb10" }}
+        >
+          <Picker.Item label="OFF" value="OFF" />
+          <Picker.Item label="6:00-16:00" value="6:00-16:00" />
+          <Picker.Item label="16:00-00:00" value="16:00-00:00" />
+          <Picker.Item label="00:00-06:00" value="00:00-06:00" />
+          <Picker.Item label="ALL DAY" value="ALL DAY" />
+        </Picker>
+        <Custombutton
+          text="Send your shifts"
+          onPress={handleSubmit(onSendPress)}
+          type="SECONDARY"
+        ></Custombutton>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const Styles = StyleSheet.create({
-  back: {
-    backgroundColor: "#82a6e0",
-    flex: 1,
-  },
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
   },
   name: {
     marginTop: 10,
     marginLeft: 10,
     fontSize: 20,
 
-    color: "black",
-    fontWeight: "600",
+    color: "#03dac5",
+    fontWeight: "bold",
   },
 });
 

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import { useForm } from "react-hook-form";
 import Custombutton from "../../Components/Custombutton";
@@ -51,7 +51,7 @@ const ChangePassword = ({ route, navigation }) => {
     );
   }
   return (
-    <View style={Styles.back}>
+    <ScrollView style={{ backgroundColor: "#6f00ff" }}>
       <SafeAreaView style={Styles.root}>
         <Text style={Styles.title}>Choose your new passowrd</Text>
         <Custominput
@@ -72,21 +72,21 @@ const ChangePassword = ({ route, navigation }) => {
         <Custombutton
           text="Change Password"
           onPress={handleSubmit(onChangePasswordPressed)}
-          type="FORTH"
+          type="SECONDARY"
         ></Custombutton>
       </SafeAreaView>
-    </View>
+    </ScrollView>
   );
 };
 const Styles = StyleSheet.create({
   back: {
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
     flex: 1,
   },
   root: {
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
     flex: 1,
   },
   logo: {
@@ -97,7 +97,7 @@ const Styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "black",
+    color: "#03dac5",
     margin: 10,
   },
 });

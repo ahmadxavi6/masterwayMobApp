@@ -55,53 +55,47 @@ const Signin = () => {
     );
   }
   return (
-    <ScrollView style={{ backgroundColor: "#82a6e0" }}>
-      <View style={Styles.back}>
-        <View style={Styles.root}>
-          <Image
-            source={Logo}
-            resizeMode="contain"
-            style={(Styles.logo, { height: height * 0.5 })}
-          ></Image>
-          <Custominput
-            rules={{ required: "Email is Required" }}
-            placeholder="Email"
-            control={control}
-            name="email"
-          />
-          <Custominput
-            placeholder="Password"
-            name="password"
-            rules={{ required: "Password is Required" }}
-            control={control}
-            secureTextEntry={true}
-          />
+    <ScrollView style={{ backgroundColor: "#6f00ff" }}>
+      <View style={Styles.root}>
+        <Image
+          source={Logo}
+          resizeMode="contain"
+          style={(Styles.logo, { height: height * 0.5 })}
+        ></Image>
+        <Custominput
+          rules={{ required: "Email is Required" }}
+          placeholder="Email"
+          control={control}
+          name="email"
+        />
+        <Custominput
+          placeholder="Password"
+          name="password"
+          rules={{ required: "Password is Required" }}
+          control={control}
+          secureTextEntry={true}
+        />
 
-          <Custombutton
-            text="Sign In"
-            type="PRIMARY"
-            onPress={handleSubmit(onSignInPressed)}
-          ></Custombutton>
-          <Custombutton
-            text="Forgot Password?"
-            onPress={onForgotPasswordPressed}
-            type="TERTIARY"
-          ></Custombutton>
-        </View>
+        <Custombutton
+          text="Sign In"
+          type="PRIMARY"
+          onPress={handleSubmit(onSignInPressed)}
+        ></Custombutton>
+        <Custombutton
+          text="Forgot Password?"
+          onPress={onForgotPasswordPressed}
+          type="TERTIARY"
+        ></Custombutton>
       </View>
     </ScrollView>
   );
 };
 const Styles = StyleSheet.create({
-  back: {
-    backgroundColor: "#82a6e0",
-    flex: 1,
-  },
   root: {
     alignItems: "center",
     padding: 20,
     flex: 1,
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
   },
   logo: { width: "50%" },
   spinnerTextStyle: {
