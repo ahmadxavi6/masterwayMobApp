@@ -6,6 +6,8 @@ import {
   useWindowDimensions,
   TextInput,
   ActivityIndicator,
+  KeyboardAvoidingView,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import Logo from "../../../assets/logo2.png";
@@ -53,39 +55,41 @@ const Signin = () => {
     );
   }
   return (
-    <View style={Styles.back}>
-      <View style={Styles.root}>
-        <Image
-          source={Logo}
-          resizeMode="contain"
-          style={(Styles.logo, { height: height * 0.5 })}
-        ></Image>
-        <Custominput
-          rules={{ required: "Email is Required" }}
-          placeholder="Email"
-          control={control}
-          name="email"
-        />
-        <Custominput
-          placeholder="Password"
-          name="password"
-          rules={{ required: "Password is Required" }}
-          control={control}
-          secureTextEntry={true}
-        />
+    <ScrollView style={{ backgroundColor: "#82a6e0" }}>
+      <View style={Styles.back}>
+        <View style={Styles.root}>
+          <Image
+            source={Logo}
+            resizeMode="contain"
+            style={(Styles.logo, { height: height * 0.5 })}
+          ></Image>
+          <Custominput
+            rules={{ required: "Email is Required" }}
+            placeholder="Email"
+            control={control}
+            name="email"
+          />
+          <Custominput
+            placeholder="Password"
+            name="password"
+            rules={{ required: "Password is Required" }}
+            control={control}
+            secureTextEntry={true}
+          />
 
-        <Custombutton
-          text="Sign In"
-          type="PRIMARY"
-          onPress={handleSubmit(onSignInPressed)}
-        ></Custombutton>
-        <Custombutton
-          text="Forgot Password?"
-          onPress={onForgotPasswordPressed}
-          type="TERTIARY"
-        ></Custombutton>
+          <Custombutton
+            text="Sign In"
+            type="PRIMARY"
+            onPress={handleSubmit(onSignInPressed)}
+          ></Custombutton>
+          <Custombutton
+            text="Forgot Password?"
+            onPress={onForgotPasswordPressed}
+            type="TERTIARY"
+          ></Custombutton>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 const Styles = StyleSheet.create({

@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { useForm } from "react-hook-form";
 import Custombutton from "../../Components/Custombutton";
@@ -105,32 +111,38 @@ const EditProfile = ({ route, navigation }) => {
     );
   }
   return (
-    <View style={Styles.back}>
-      <SafeAreaView style={Styles.root}>
-        <Text style={Styles.title}>Name</Text>
-        <Custominput placeholder={"Full Name"} control={control} name="fName" />
-        <Text style={Styles.title}>Email</Text>
-        <Custominput placeholder={"Email"} control={control} name="email" />
-        <Text style={Styles.title}>Age</Text>
-        <Custominput placeholder={"Age"} control={control} name="age" />
-        <Text style={Styles.title}>Phone Number</Text>
-        <Custominput
-          placeholder={"Phone Number"}
-          control={control}
-          name="phoneNumber"
-        />
-        <Custombutton
-          text="Edit your profile"
-          onPress={handleSubmit(onEditPress)}
-          type="FORTH"
-        ></Custombutton>
-        <Custombutton
-          text="Change profile picture"
-          onPress={handleSubmit(uploadPic)}
-          type="SECONDARY"
-        ></Custombutton>
-      </SafeAreaView>
-    </View>
+    <ScrollView style={{ backgroundColor: "#82a6e0" }}>
+      <View style={Styles.back}>
+        <SafeAreaView style={Styles.root}>
+          <Text style={Styles.title}>Name</Text>
+          <Custominput
+            placeholder={"Full Name"}
+            control={control}
+            name="fName"
+          />
+          <Text style={Styles.title}>Email</Text>
+          <Custominput placeholder={"Email"} control={control} name="email" />
+          <Text style={Styles.title}>Age</Text>
+          <Custominput placeholder={"Age"} control={control} name="age" />
+          <Text style={Styles.title}>Phone Number</Text>
+          <Custominput
+            placeholder={"Phone Number"}
+            control={control}
+            name="phoneNumber"
+          />
+          <Custombutton
+            text="Edit your profile"
+            onPress={handleSubmit(onEditPress)}
+            type="FORTH"
+          ></Custombutton>
+          <Custombutton
+            text="Change profile picture"
+            onPress={handleSubmit(uploadPic)}
+            type="SECONDARY"
+          ></Custombutton>
+        </SafeAreaView>
+      </View>
+    </ScrollView>
   );
 };
 const Styles = StyleSheet.create({
