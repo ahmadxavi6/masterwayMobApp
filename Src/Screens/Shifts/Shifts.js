@@ -17,80 +17,74 @@ const Shifts = ({ route, navigation }) => {
   };
 
   return (
-    <View style={Styles.back}>
-      <SafeAreaView style={Styles.bodyContent}>
-        <Text style={Styles.description}>
-          Sunday:{"  "} {worker.worker.weekShifts.Sun.hours}
-        </Text>
-        <Text style={Styles.info}>
-          Info: {"  "}
-          {worker.worker.weekShifts.Sun.info}
-        </Text>
+    <SafeAreaView style={Styles.bodyContent}>
+      <Text style={Styles.description}>
+        Sunday:{"  "} {worker.worker.weekShifts.Sun.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Sun.info}
+      </Text>
 
-        <Text style={Styles.description}>
-          Monday:{"  "} {worker.worker.weekShifts.Mon.hours}
-        </Text>
-        <Text style={Styles.info}>
-          Info: {"  "}
-          {worker.worker.weekShifts.Mon.info}
-        </Text>
-        <Text style={Styles.description}>
-          Tuesday: {"  "}
-          {worker.worker.weekShifts.Tue.hours}
-        </Text>
-        <Text style={Styles.info}>
-          Info: {"  "}
-          {worker.worker.weekShifts.Tue.info}
-        </Text>
-        <Text style={Styles.description}>
-          Wednesday: {"  "}
-          {worker.worker.weekShifts.Wed.hours}
-        </Text>
-        <Text style={Styles.info}>
-          Info:{"  "} {worker.worker.weekShifts.Wed.info}
-        </Text>
-        <Text style={Styles.description}>
-          Thursday:{"  "} {worker.worker.weekShifts.Thur.hours}
-        </Text>
-        <Text style={Styles.info}>
-          Info: {"  "}
-          {worker.worker.weekShifts.Thur.info}
-        </Text>
-        <Text style={Styles.description}>
-          Friday: {"  "}
-          {worker.worker.weekShifts.Fri.hours}
-        </Text>
-        <Text style={Styles.info}>
-          Info: {"  "}
-          {worker.worker.weekShifts.Fri.info}
-        </Text>
-        <Text style={Styles.description}>
-          Saturday:{"  "} {worker.worker.weekShifts.Sat.hours}
-        </Text>
-        <Text style={Styles.info}>
-          Info:{"  "} {worker.worker.weekShifts.Sat.info}
-        </Text>
-        <Custombutton
-          text="Send your requested shifts"
-          onPress={handleSubmit(SendShifts)}
-          type="FORTH"
-        ></Custombutton>
-      </SafeAreaView>
-    </View>
+      <Text style={Styles.description}>
+        Monday:{"  "} {worker.worker.weekShifts.Mon.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Mon.info}
+      </Text>
+      <Text style={Styles.description}>
+        Tuesday: {"  "}
+        {worker.worker.weekShifts.Tue.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Tue.info}
+      </Text>
+      <Text style={Styles.description}>
+        Wednesday: {"  "}
+        {worker.worker.weekShifts.Wed.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info:{"  "} {worker.worker.weekShifts.Wed.info}
+      </Text>
+      <Text style={Styles.description}>
+        Thursday:{"  "} {worker.worker.weekShifts.Thur.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Thur.info}
+      </Text>
+      <Text style={Styles.description}>
+        Friday: {"  "}
+        {worker.worker.weekShifts.Fri.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info: {"  "}
+        {worker.worker.weekShifts.Fri.info}
+      </Text>
+      <Text style={Styles.description}>
+        Saturday:{"  "} {worker.worker.weekShifts.Sat.hours}
+      </Text>
+      <Text style={Styles.info}>
+        Info:{"  "} {worker.worker.weekShifts.Sat.info}
+      </Text>
+      <Custombutton
+        text="Send your requested shifts"
+        onPress={handleSubmit(SendShifts)}
+        type="SECONDARY"
+      ></Custombutton>
+    </SafeAreaView>
   );
 };
 const Styles = StyleSheet.create({
-  back: {
-    backgroundColor: "#82a6e0",
-    flex: 1,
-  },
   body: {
     marginTop: 40,
   },
   bodyContent: {
     paddingTop: 20,
     flex: 1,
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
   },
   name: {
     marginTop: 10,
@@ -100,13 +94,15 @@ const Styles = StyleSheet.create({
   },
   info: {
     fontSize: 18,
-    color: "black",
+    color: "#03dac5",
+    fontWeight: "bold",
   },
 
   description: {
     fontSize: 18,
-    color: "black",
+    color: "#03dac5",
     marginVertical: 10,
+    fontWeight: "bold",
   },
 
   buttonContainer: {

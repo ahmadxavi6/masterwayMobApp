@@ -30,7 +30,7 @@ const MounthHours = ({ route, navigation }) => {
   useEffect(async () => {
     user.email = worker.worker.worker.email;
     user.month = "/" + mo + "/" + ye;
-    console.log(user);
+
     await axios
       .patch("https://masterway.herokuapp.com/workers/hours/", user)
       .then((resp) => {
@@ -60,87 +60,85 @@ const MounthHours = ({ route, navigation }) => {
   hour1 = temphour;
 
   return (
-    <View style={styles.back}>
-      <SafeAreaView style={styles.container}>
-        <Picker
-          selectedValue={ye}
-          onValueChange={(itemValue, itemIndex) => {
-            setYe(itemValue);
-          }}
-        >
-          <Picker.Item label="2022" value="2022" />
-          <Picker.Item label="2023" value="2023" />
-          <Picker.Item label="2024" value="2024" />
-          <Picker.Item label="2025" value="2025" />
-          <Picker.Item label="2026" value="2026" />
-        </Picker>
-        <Picker
-          selectedValue={mo}
-          onValueChange={(itemValue, itemIndex) => setMo(itemValue)}
-        >
-          <Picker.Item label="1" value="1" />
-          <Picker.Item label="2" value="2" />
-          <Picker.Item label="3" value="3" />
-          <Picker.Item label="4" value="4" />
-          <Picker.Item label="5" value="5" />
-          <Picker.Item label="6" value="6" />
-          <Picker.Item label="7" value="7" />
-          <Picker.Item label="8" value="8" />
-          <Picker.Item label="9" value="9" />
-          <Picker.Item label="10" value="10" />
-          <Picker.Item label="11" value="11" />
-          <Picker.Item label="12" value="12" />
-        </Picker>
+    <SafeAreaView style={styles.container}>
+      <Picker
+        selectedValue={ye}
+        style={{ color: "#feeb10" }}
+        onValueChange={(itemValue, itemIndex) => {
+          setYe(itemValue);
+        }}
+      >
+        <Picker.Item label="2022" value="2022" />
+        <Picker.Item label="2023" value="2023" />
+        <Picker.Item label="2024" value="2024" />
+        <Picker.Item label="2025" value="2025" />
+        <Picker.Item label="2026" value="2026" />
+      </Picker>
+      <Picker
+        selectedValue={mo}
+        style={{ color: "#feeb10" }}
+        onValueChange={(itemValue, itemIndex) => setMo(itemValue)}
+      >
+        <Picker.Item label="1" value="1" />
+        <Picker.Item label="2" value="2" />
+        <Picker.Item label="3" value="3" />
+        <Picker.Item label="4" value="4" />
+        <Picker.Item label="5" value="5" />
+        <Picker.Item label="6" value="6" />
+        <Picker.Item label="7" value="7" />
+        <Picker.Item label="8" value="8" />
+        <Picker.Item label="9" value="9" />
+        <Picker.Item label="10" value="10" />
+        <Picker.Item label="11" value="11" />
+        <Picker.Item label="12" value="12" />
+      </Picker>
 
-        <FlatList
-          data={arr}
-          renderItem={({ item }) => (
-            <SafeAreaView style={styles.item}>
-              <Text style={styles.title}>
-                {item.day} :{" "}
-                {item.hour[0] +
-                  item.hour[1] +
-                  item.hour[2] +
-                  item.hour[3] +
-                  item.hour[4] +
-                  item.hour[5] +
-                  item.hour[6] +
-                  item.hour[7]}
-              </Text>
-            </SafeAreaView>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-        <SafeAreaView style={styles.item}>
-          <Text style={styles.end}>Total work hours this month :</Text>
-          <Text style={styles.end}>
-            {hour1} hours {min} minutes {sec} seconds
-          </Text>
-        </SafeAreaView>
+      <FlatList
+        data={arr}
+        renderItem={({ item }) => (
+          <SafeAreaView style={styles.item}>
+            <Text style={styles.title}>
+              {item.day} :{" "}
+              {item.hour[0] +
+                item.hour[1] +
+                item.hour[2] +
+                item.hour[3] +
+                item.hour[4] +
+                item.hour[5] +
+                item.hour[6] +
+                item.hour[7]}
+            </Text>
+          </SafeAreaView>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
+      <SafeAreaView style={styles.item}>
+        <Text style={styles.end}>Total work hours this month :</Text>
+        <Text style={styles.end}>
+          {hour1} hours {min} minutes {sec} seconds
+        </Text>
       </SafeAreaView>
-    </View>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
-  back: {
-    backgroundColor: "#82a6e0",
-    flex: 1,
-  },
   container: {
     flex: 1,
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
   },
   item: {
-    backgroundColor: "#3f5bae",
+    backgroundColor: "#3700b3",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
   },
   title: {
     fontSize: 22,
+    color: "#03dac5",
   },
   end: {
     fontSize: 16,
+    color: "#03dac5",
   },
 });
 

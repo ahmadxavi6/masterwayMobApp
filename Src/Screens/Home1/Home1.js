@@ -81,31 +81,25 @@ const Home1 = ({ route, navigation }) => {
     navigation.navigate("MounthHours", { worker: worker });
   };
   return (
-    <View style={styles.back}>
-      <SafeAreaView style={styles.body}>
-        <Text style={styles.name}>Welcome Back {worker.worker.fName}</Text>
-        <Text style={styles.name}>{date}</Text>
-        <View style={styles.sectionStyle}>
-          <Custombutton
-            type="FORTH"
-            onPress={startShiftPressed}
-            text="Start Your Shift "
-          ></Custombutton>
-          <Custombutton
-            type="FORTH"
-            onPress={workHours}
-            text="Month Work Hours "
-          ></Custombutton>
-        </View>
-      </SafeAreaView>
-    </View>
+    <SafeAreaView style={styles.body}>
+      <Text style={styles.name}>Welcome Back {worker.worker.fName}</Text>
+      <Text style={styles.name}>{date}</Text>
+      <View style={styles.sectionStyle}>
+        <Custombutton
+          type="SECONDARY"
+          onPress={startShiftPressed}
+          text="Start Your Shift "
+        ></Custombutton>
+        <Custombutton
+          type="PRIMARY"
+          onPress={workHours}
+          text="Month Work Hours "
+        ></Custombutton>
+      </View>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
-  back: {
-    backgroundColor: "#82a6e0",
-    flex: 1,
-  },
   header: {
     backgroundColor: "#00BFFF",
     height: 200,
@@ -127,12 +121,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   name: {
-    fontSize: 22,
-    color: "black",
-    fontWeight: "600",
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#03dac5",
+    margin: 10,
   },
   body: {
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

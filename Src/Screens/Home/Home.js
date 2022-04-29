@@ -18,9 +18,9 @@ const Home = ({ route, navigation }) => {
   return (
     <NetworkContext.Provider value={route.params}>
       <Tab.Navigator
-        activeColor="#f0edf6"
-        inactiveColor="black"
-        barStyle={{ backgroundColor: "#3f5bae" }}
+        activeColor="#03dac5"
+        inactiveColor="#f0edf6"
+        barStyle={{ backgroundColor: "#3700b3" }}
       >
         <Tab.Screen
           options={{

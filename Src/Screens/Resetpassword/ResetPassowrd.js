@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React, { useState } from "react";
 import Custombutton from "../../Components/Custombutton";
 import Custominput from "../../Components/Custominput";
@@ -62,7 +62,7 @@ const ResetPassword = ({ route, navigation }) => {
     );
   }
   return (
-    <View style={Styles.back}>
+    <ScrollView style={{ backgroundColor: "#6f00ff" }}>
       <View style={Styles.root}>
         <Text style={Styles.title}>Confirm your email</Text>
         <Custominput placeholder="code" control={control} name="code" />
@@ -78,18 +78,18 @@ const ResetPassword = ({ route, navigation }) => {
           type="SECONDARY"
         ></Custombutton>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 const Styles = StyleSheet.create({
   back: {
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
     flex: 1,
   },
   root: {
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
     flex: 1,
   },
   logo: {
@@ -100,7 +100,7 @@ const Styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#051c60",
+    color: "#03dac5",
     margin: 10,
   },
 });

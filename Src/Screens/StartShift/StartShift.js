@@ -18,20 +18,24 @@ import Constants from "expo-constants";
 import * as Location from "expo-location";
 import { useEffect } from "react";
 import { useState } from "react";
+import Spinner from "react-native-loading-spinner-overlay";
 
 const StartShift = ({ route, navigation }) => {
   const worker = route.params;
   const user = { email: "", Long: "", Lati: "" };
   const useer = { email: "", day: "", hour: "" };
   const [isStopwatchStart, setIsStopwatchStart] = useState(true);
+
   const [time, setTime] = useState("");
   var today = new Date();
   var date =
     today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
   const sendTime = async () => {
     setIsStopwatchStart(false);
+    setLoading(true);
     useer.email = worker.worker.worker.email;
     useer.day = date;
     useer.hour = time;
@@ -44,6 +48,7 @@ const StartShift = ({ route, navigation }) => {
         navigation.navigate("Home1");
       })
       .catch((err) => alert("There is problem"));
+    setLoading(false);
   };
   useEffect(() => {
     (async () => {
@@ -79,55 +84,63 @@ const StartShift = ({ route, navigation }) => {
       };
     })();
   }, []);
+  if (loading) {
+    return (
+      <Spinner
+        //visibility of Overlay Loading Spinner
+        visible={loading}
+        //Text with the Spinner
+        textContent={"Finish your shift "}
+        //Text style of the Spinner Text
+        textStyle={styles.spinnerTextStyle}
+      />
+    );
+  }
 
   return (
-    <View style={styles.back}>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.container}>
-          <Text style={styles.title}>Your Shift has started</Text>
-          <Text style={styles.title}>Dont leave this page in the app</Text>
-          <Text style={styles.title}>in order to keep track of your hours</Text>
-          <View style={styles.sectionStyle}>
-            <Stopwatch
-              laps
-              msecs
-              start={isStopwatchStart}
-              options={options}
-              getTime={(time) => {
-                setTime(time);
-              }}
-            />
-            <Custombutton
-              text="Finish your shift "
-              type="FORTH"
-              onPress={sendTime}
-            >
-              <Text>End Shift</Text>
-            </Custombutton>
-          </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <Text style={styles.title}>
+          Your Shift has started Dont leave this page in the app in order to
+          keep track of your hours
+        </Text>
+
+        <View style={styles.sectionStyle}>
+          <Stopwatch
+            laps
+            msecs
+            start={isStopwatchStart}
+            options={options}
+            getTime={(time) => {
+              setTime(time);
+            }}
+          />
+          <Custombutton
+            text="Finish your shift "
+            type="FORTH"
+            onPress={sendTime}
+          >
+            <Text>End Shift</Text>
+          </Custombutton>
         </View>
-      </SafeAreaView>
-    </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  back: {
-    backgroundColor: "#82a6e0",
-    flex: 1,
-  },
   container: {
     padding: 10,
-    backgroundColor: "#82a6e0",
+    backgroundColor: "#6f00ff",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   title: {
-    textAlign: "center",
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
-    padding: 20,
+    color: "#03dac5",
+    margin: 10,
   },
   buttonContainer: {
     marginTop: 10,
@@ -138,7 +151,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     borderRadius: 30,
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#6f00ff",
   },
   sectionStyle: {
     alignItems: "center",
@@ -152,7 +165,7 @@ const styles = StyleSheet.create({
 
 const options = {
   container: {
-    backgroundColor: "green",
+    backgroundColor: "#03dac5",
     padding: 5,
     borderRadius: 5,
     width: 200,
@@ -160,7 +173,7 @@ const options = {
   },
   text: {
     fontSize: 25,
-    color: "#FFF",
+    color: "#3700b3",
     marginLeft: 7,
   },
 };
