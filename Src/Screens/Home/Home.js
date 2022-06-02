@@ -14,7 +14,7 @@ import SalaryReports from "../SalaryReports";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
+/// the tab navigtor
 const Home = ({ route, navigation }) => {
   return (
     <NetworkContext.Provider value={route.params}>

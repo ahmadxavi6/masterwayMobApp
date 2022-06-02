@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import Spinner from "react-native-loading-spinner-overlay";
 
 import axios from "axios";
+/// page that send reset password email to worker email
 const ForgotPassword = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
 
@@ -15,7 +16,7 @@ const ForgotPassword = ({ navigation }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  // const navigation = useNavigation();
+  // Send Reset password email to the worker email
   const onForgotPasswordPressed = async (data) => {
     setLoading(true);
 

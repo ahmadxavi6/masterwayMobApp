@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import axios from "axios";
 import Spinner from "react-native-loading-spinner-overlay";
-
+/// change the password page for the worker
 const ChangePassword = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
   const worker = route.params;
@@ -16,7 +16,7 @@ const ChangePassword = ({ route, navigation }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  //// Change the password of the user
   const onChangePasswordPressed = async (data) => {
     if (String(data.password1) !== String(data.password2)) {
       alert("The password dont match");

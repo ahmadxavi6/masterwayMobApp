@@ -15,7 +15,7 @@ import { NetworkContext } from "../../Context/NetworkContext";
 import Custombutton from "../../Components/Custombutton";
 import { useForm } from "react-hook-form";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
+/// page that get the salary reports from the database based on the year selected
 const MounthHours = ({ route, navigation }) => {
   const worker = React.useContext(NetworkContext);
 
@@ -31,10 +31,11 @@ const MounthHours = ({ route, navigation }) => {
     formState: { errors },
   } = useForm();
   const [arr, setArr] = useState("");
+  /// cd to show report page
   const onSendPress = (e) => {
     navigation.navigate("ShowReports", { file: e.item.file });
   };
-
+  /// get the salary reports from the database based on the year picked
   useEffect(async () => {
     user.date = ye;
 

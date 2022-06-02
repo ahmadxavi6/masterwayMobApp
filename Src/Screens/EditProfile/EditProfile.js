@@ -15,7 +15,7 @@ import { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
 import Spinner from "react-native-loading-spinner-overlay";
-
+/// edit the profile picture and info page
 const EditProfile = ({ route, navigation }) => {
   const worker = route.params;
   const [image, setImage] = useState("");
@@ -26,6 +26,7 @@ const EditProfile = ({ route, navigation }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  /// upload pic to the worker profile page
   const uploadPic = async (data) => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -55,6 +56,7 @@ const EditProfile = ({ route, navigation }) => {
       .catch((err) => alert("There is problem"));
     setLoading(false);
   };
+  /// change the info of the worker and send it to data base
   const onEditPress = async (data) => {
     setLoading(true);
 

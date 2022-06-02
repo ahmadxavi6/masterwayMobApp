@@ -1,6 +1,6 @@
 import { SafeAreaView, Text, Image, StyleSheet } from "react-native";
 import React from "react";
-
+///  page to view the salary report image
 const Showreports = ({ route, navigation }) => {
   const src = route.params;
 

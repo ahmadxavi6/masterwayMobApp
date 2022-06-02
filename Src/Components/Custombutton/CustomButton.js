@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
 import React from "react";
-
+/// button that i will use in the app
 const CustomButton = ({ onPress, text, type }) => {
   return (
     <Pressable

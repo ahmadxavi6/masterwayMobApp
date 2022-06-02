@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import Spinner from "react-native-loading-spinner-overlay";
 
 import axios from "axios";
-
+/// page that requres code in order to be able to move to the change password page
 const ResetPassword = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
 
@@ -18,6 +18,7 @@ const ResetPassword = ({ route, navigation }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  /// check if the code is the same in the database then cd to newpassword page
   const onConfirmPressed = async (data) => {
     setLoading(true);
 
@@ -39,6 +40,7 @@ const ResetPassword = ({ route, navigation }) => {
       .catch((err) => alert("The code is not correct"));
     setLoading(false);
   };
+  /// send reset password email again
   const onSendPressed = async () => {
     setLoading(true);
     await axios

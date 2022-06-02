@@ -16,7 +16,7 @@ import SendShifts from "../Screens/SendShifts";
 import ShowReports from "../Screens/ShowReports";
 
 const Stack = createNativeStackNavigator();
-
+/// the navigation of the screens of the app
 const Navigation = () => {
   return (
     <NavigationContainer>

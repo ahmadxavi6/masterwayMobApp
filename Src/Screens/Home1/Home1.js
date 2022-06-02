@@ -8,7 +8,7 @@ import {
 import { NetworkContext } from "../../Context/NetworkContext";
 import Custombutton from "../../Components/Custombutton";
 import React, { useState } from "react";
-
+/// home page that contain start shift and workers hours
 const Home1 = ({ route, navigation }) => {
   const worker = React.useContext(NetworkContext);
   const [has, setHas] = useState(false);
@@ -66,7 +66,7 @@ const Home1 = ({ route, navigation }) => {
   ) {
     setHas(true);
   }
-
+  /// move the start shift screen
   const startShiftPressed = async () => {
     if (has === true && counter === false) {
       setCounter(true);
@@ -77,6 +77,7 @@ const Home1 = ({ route, navigation }) => {
       alert("You dont have a shift today");
     }
   };
+  /// cd to works hours page
   const workHours = async () => {
     navigation.navigate("MounthHours", { worker: worker });
   };

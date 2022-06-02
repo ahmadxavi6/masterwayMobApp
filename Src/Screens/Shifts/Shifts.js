@@ -1,10 +1,16 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { NetworkContext } from "../../Context/NetworkContext";
 import { StyleSheet } from "react-native";
 import Custombutton from "../../Components/Custombutton";
 import { useForm } from "react-hook-form";
-
+/// page that contains the shifts of the worker of the week
 const Shifts = ({ route, navigation }) => {
   const {
     control,
@@ -12,69 +18,72 @@ const Shifts = ({ route, navigation }) => {
     formState: { errors },
   } = useForm();
   const worker = React.useContext(NetworkContext);
+  /// cd to the send shifts page
   const SendShifts = () => {
     navigation.navigate("SendShifts", { worker: worker });
   };
 
   return (
-    <SafeAreaView style={Styles.bodyContent}>
-      <Text style={Styles.description}>
-        Sunday:{"  "} {worker.worker.weekShifts.Sun.hours}
-      </Text>
-      <Text style={Styles.info}>
-        Info: {"  "}
-        {worker.worker.weekShifts.Sun.info}
-      </Text>
+    <ScrollView style={{ backgroundColor: "#6f00ff" }}>
+      <SafeAreaView style={Styles.bodyContent}>
+        <Text style={Styles.description}>
+          Sunday:{"  "} {worker.worker.weekShifts.Sun.hours}
+        </Text>
+        <Text style={Styles.info}>
+          Info: {"  "}
+          {worker.worker.weekShifts.Sun.info}
+        </Text>
 
-      <Text style={Styles.description}>
-        Monday:{"  "} {worker.worker.weekShifts.Mon.hours}
-      </Text>
-      <Text style={Styles.info}>
-        Info: {"  "}
-        {worker.worker.weekShifts.Mon.info}
-      </Text>
-      <Text style={Styles.description}>
-        Tuesday: {"  "}
-        {worker.worker.weekShifts.Tue.hours}
-      </Text>
-      <Text style={Styles.info}>
-        Info: {"  "}
-        {worker.worker.weekShifts.Tue.info}
-      </Text>
-      <Text style={Styles.description}>
-        Wednesday: {"  "}
-        {worker.worker.weekShifts.Wed.hours}
-      </Text>
-      <Text style={Styles.info}>
-        Info:{"  "} {worker.worker.weekShifts.Wed.info}
-      </Text>
-      <Text style={Styles.description}>
-        Thursday:{"  "} {worker.worker.weekShifts.Thur.hours}
-      </Text>
-      <Text style={Styles.info}>
-        Info: {"  "}
-        {worker.worker.weekShifts.Thur.info}
-      </Text>
-      <Text style={Styles.description}>
-        Friday: {"  "}
-        {worker.worker.weekShifts.Fri.hours}
-      </Text>
-      <Text style={Styles.info}>
-        Info: {"  "}
-        {worker.worker.weekShifts.Fri.info}
-      </Text>
-      <Text style={Styles.description}>
-        Saturday:{"  "} {worker.worker.weekShifts.Sat.hours}
-      </Text>
-      <Text style={Styles.info}>
-        Info:{"  "} {worker.worker.weekShifts.Sat.info}
-      </Text>
-      <Custombutton
-        text="Send your requested shifts"
-        onPress={handleSubmit(SendShifts)}
-        type="SECONDARY"
-      ></Custombutton>
-    </SafeAreaView>
+        <Text style={Styles.description}>
+          Monday:{"  "} {worker.worker.weekShifts.Mon.hours}
+        </Text>
+        <Text style={Styles.info}>
+          Info: {"  "}
+          {worker.worker.weekShifts.Mon.info}
+        </Text>
+        <Text style={Styles.description}>
+          Tuesday: {"  "}
+          {worker.worker.weekShifts.Tue.hours}
+        </Text>
+        <Text style={Styles.info}>
+          Info: {"  "}
+          {worker.worker.weekShifts.Tue.info}
+        </Text>
+        <Text style={Styles.description}>
+          Wednesday: {"  "}
+          {worker.worker.weekShifts.Wed.hours}
+        </Text>
+        <Text style={Styles.info}>
+          Info:{"  "} {worker.worker.weekShifts.Wed.info}
+        </Text>
+        <Text style={Styles.description}>
+          Thursday:{"  "} {worker.worker.weekShifts.Thur.hours}
+        </Text>
+        <Text style={Styles.info}>
+          Info: {"  "}
+          {worker.worker.weekShifts.Thur.info}
+        </Text>
+        <Text style={Styles.description}>
+          Friday: {"  "}
+          {worker.worker.weekShifts.Fri.hours}
+        </Text>
+        <Text style={Styles.info}>
+          Info: {"  "}
+          {worker.worker.weekShifts.Fri.info}
+        </Text>
+        <Text style={Styles.description}>
+          Saturday:{"  "} {worker.worker.weekShifts.Sat.hours}
+        </Text>
+        <Text style={Styles.info}>
+          Info:{"  "} {worker.worker.weekShifts.Sat.info}
+        </Text>
+        <Custombutton
+          text="Send your requested shifts"
+          onPress={handleSubmit(SendShifts)}
+          type="SECONDARY"
+        ></Custombutton>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 const Styles = StyleSheet.create({

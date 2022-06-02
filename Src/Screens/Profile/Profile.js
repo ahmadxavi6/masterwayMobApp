@@ -8,9 +8,10 @@ import {
   Image,
   View,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
-
+/// profile page that contain profile picture and info of the worker and three button
 const Profile = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +25,7 @@ const Profile = ({ route, navigation }) => {
     phoneNumber: worker.worker.phoneNumber,
   };
   const [state, setState] = useState(initialState);
-
+  /// get the new info from the database
   const update = async () => {
     setLoading(true);
 
@@ -41,10 +42,11 @@ const Profile = ({ route, navigation }) => {
       .catch((err) => alert("server problem"));
     setLoading(false);
   };
-
+  /// cd to change password page
   const onPress1 = () => {
     navigation.navigate("ChangePassword", { worker: worker });
   };
+  /// cd to the edit profile page
   const onPress2 = () => {
     navigation.navigate("EditProfile", { worker: worker });
   };
@@ -63,31 +65,33 @@ const Profile = ({ route, navigation }) => {
     );
   }
   return (
-    <SafeAreaView style={styles.container}>
-      <SafeAreaView style={styles.header}></SafeAreaView>
-      <Image style={styles.avatar} source={{ uri: ed }} />
-      <SafeAreaView style={styles.body}>
-        <SafeAreaView style={styles.bodyContent}>
-          <Text style={styles.name}>{state.fName}</Text>
-          <Text style={styles.info}>{state.ID}</Text>
-          <Text style={styles.description}>Age: {state.age}</Text>
-          <Text style={styles.description}>Email: {state.email}</Text>
-          <Text style={styles.description}>
-            Phone Number: {state.phoneNumber}
-          </Text>
+    <ScrollView style={{ backgroundColor: "#6f00ff" }}>
+      <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.header}></SafeAreaView>
+        <Image style={styles.avatar} source={{ uri: ed }} />
+        <SafeAreaView style={styles.body}>
+          <SafeAreaView style={styles.bodyContent}>
+            <Text style={styles.name}>{state.fName}</Text>
+            <Text style={styles.info}>{state.ID}</Text>
+            <Text style={styles.description}>Age: {state.age}</Text>
+            <Text style={styles.description}>Email: {state.email}</Text>
+            <Text style={styles.description}>
+              Phone Number: {state.phoneNumber}
+            </Text>
 
-          <TouchableOpacity style={styles.buttonContainer} onPress={onPress1}>
-            <Text style={styles.x}>Change Password</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
-            <Text style={styles.x}>Edit Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonContainer} onPress={update}>
-            <Text style={styles.x}>Refresh Profile</Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} onPress={onPress1}>
+              <Text style={styles.x}>Change Password</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
+              <Text style={styles.x}>Edit Profile</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} onPress={update}>
+              <Text style={styles.x}>Refresh Profile</Text>
+            </TouchableOpacity>
+          </SafeAreaView>
         </SafeAreaView>
       </SafeAreaView>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({

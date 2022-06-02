@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Spinner from "react-native-loading-spinner-overlay";
 import { useState } from "react";
-
+/// change the password for the worker page
 const NewPassword = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
 
@@ -16,7 +16,7 @@ const NewPassword = ({ route, navigation }) => {
     formState: { errors },
   } = useForm();
   const email = route.params;
-
+  /// change the password for the worker
   const onChangePasswordPressed = async (data) => {
     if (String(data.password1) !== String(data.password2)) {
       alert("The password dont match");

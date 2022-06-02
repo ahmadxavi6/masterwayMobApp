@@ -3,6 +3,7 @@ import {
   Text,
   StyleSheet,
   View,
+  ScrollView,
   Platform,
   TouchableHighlight,
   Touchable,
@@ -19,7 +20,7 @@ import * as Location from "expo-location";
 import { useEffect } from "react";
 import { useState } from "react";
 import Spinner from "react-native-loading-spinner-overlay";
-
+/// page to start the shift
 const StartShift = ({ route, navigation }) => {
   const worker = route.params;
   const user = { email: "", Long: "", Lati: "" };
@@ -33,6 +34,7 @@ const StartShift = ({ route, navigation }) => {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [loading, setLoading] = useState(false);
+  /// send the hours that worker had done in this day
   const sendTime = async () => {
     setIsStopwatchStart(false);
     setLoading(true);
@@ -50,6 +52,7 @@ const StartShift = ({ route, navigation }) => {
       .catch((err) => alert("There is problem"));
     setLoading(false);
   };
+  /// send the location of the car every one minute
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -98,33 +101,35 @@ const StartShift = ({ route, navigation }) => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <Text style={styles.title}>
-          Your Shift has started Dont leave this page in the app in order to
-          keep track of your hours
-        </Text>
+    <ScrollView style={{ backgroundColor: "#6f00ff" }}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+          <Text style={styles.title}>
+            Your Shift has started Dont leave this page in the app in order to
+            keep track of your hours
+          </Text>
 
-        <View style={styles.sectionStyle}>
-          <Stopwatch
-            laps
-            msecs
-            start={isStopwatchStart}
-            options={options}
-            getTime={(time) => {
-              setTime(time);
-            }}
-          />
-          <Custombutton
-            text="Finish your shift "
-            type="FORTH"
-            onPress={sendTime}
-          >
-            <Text>End Shift</Text>
-          </Custombutton>
+          <View style={styles.sectionStyle}>
+            <Stopwatch
+              laps
+              msecs
+              start={isStopwatchStart}
+              options={options}
+              getTime={(time) => {
+                setTime(time);
+              }}
+            />
+            <Custombutton
+              text="Finish your shift "
+              type="FORTH"
+              onPress={sendTime}
+            >
+              <Text>End Shift</Text>
+            </Custombutton>
+          </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 

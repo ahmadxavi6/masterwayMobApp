@@ -17,7 +17,7 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
 import Spinner from "react-native-loading-spinner-overlay";
-
+/// sign in page the first screen showing on the app
 const Signin = () => {
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +27,7 @@ const Signin = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  /// sign and and cd to the home page
   const onSignInPressed = async (data) => {
     setLoading(true);
     await axios
@@ -39,6 +39,7 @@ const Signin = () => {
     setLoading(false);
   };
   const navigation = useNavigation();
+  /// cd to foget password page
   const onForgotPasswordPressed = () => {
     navigation.navigate("ForgotPassword");
   };

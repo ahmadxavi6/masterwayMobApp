@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import Custombutton from "../../Components/Custombutton";
 import axios from "axios";
 import Spinner from "react-native-loading-spinner-overlay";
-
+/// page that send the requested shifts to the database
 const SendShifts = ({ route, navigation }) => {
   const worker = route.params;
   const [loading, setLoading] = useState(false);
@@ -33,6 +33,7 @@ const SendShifts = ({ route, navigation }) => {
     Sat: "",
     email: "",
   };
+  /// send requested shifts to the data base
   const onSendPress = async () => {
     user.Sun = sun;
     user.Mon = mon;
