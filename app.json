@@ -11,8 +11,10 @@
         {
           "photosPermission": "The app accesses your photos to let you share them with your work company as profiele picture"
         }
+        
       ]
     ],
+    
     
     "slug": "MasterWay",
     "version": "1.0.5",

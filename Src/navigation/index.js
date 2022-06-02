@@ -13,6 +13,7 @@ import StartShift from "../Screens/StartShift/StartShift";
 import EditProfile from "../Screens/EditProfile";
 import MounthHours from "../Screens/MonthHours";
 import SendShifts from "../Screens/SendShifts";
+import ShowReports from "../Screens/ShowReports";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ const Navigation = () => {
         <Stack.Screen name="SendShifts" component={SendShifts}></Stack.Screen>
         <Stack.Screen name="StartShift" component={StartShift}></Stack.Screen>
         <Stack.Screen name="MounthHours" component={MounthHours}></Stack.Screen>
+        <Stack.Screen name="ShowReports" component={ShowReports}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -10,6 +10,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { NetworkContext } from "../../Context/NetworkContext";
 import { useForm } from "react-hook-form";
 import ChangePassword from "../Changepassword";
+import SalaryReports from "../SalaryReports";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -51,6 +52,21 @@ const Home = ({ route, navigation }) => {
           }}
           name="Shifts"
           component={Shifts}
+        />
+
+        <Tab.Screen
+          options={{
+            tabBarLabel: "Salary Reports",
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons
+                name="account-cash-outline"
+                color={color}
+                size={26}
+              />
+            ),
+          }}
+          name="Reports"
+          component={SalaryReports}
         />
       </Tab.Navigator>
     </NetworkContext.Provider>
