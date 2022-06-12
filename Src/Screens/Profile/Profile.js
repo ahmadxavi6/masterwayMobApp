@@ -11,6 +11,8 @@ import {
   ScrollView,
 } from "react-native";
 import Spinner from "react-native-loading-spinner-overlay";
+import { useFocusEffect } from "@react-navigation/core";
+
 /// profile page that contain profile picture and info of the worker and three button
 const Profile = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
@@ -26,22 +28,27 @@ const Profile = ({ route, navigation }) => {
   };
   const [state, setState] = useState(initialState);
   /// get the new info from the database
-  const update = async () => {
-    setLoading(true);
+  useFocusEffect(
+    React.useCallback(() => {
+      const update = async () => {
+        setLoading(true);
 
-    const user = {
-      email: "",
-    };
-    user.email = worker.worker.email;
-    await axios
+        const user = {
+          email: "",
+        };
+        user.email = worker.worker.email;
+        await axios
 
-      .put("https://masterway.herokuapp.com/workers/appprofile", user)
-      .then((resp) => {
-        setState(resp.data);
-      })
-      .catch((err) => alert("server problem"));
-    setLoading(false);
-  };
+          .put("https://masterway.herokuapp.com/workers/appprofile", user)
+          .then((resp) => {
+            setState(resp.data);
+          })
+          .catch((err) => alert("server problem"));
+        setLoading(false);
+      };
+      update();
+    }, [])
+  );
   /// cd to change password page
   const onPress1 = () => {
     navigation.navigate("ChangePassword", { worker: worker });
@@ -84,9 +91,6 @@ const Profile = ({ route, navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer} onPress={onPress2}>
               <Text style={styles.x}>Edit Profile</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} onPress={update}>
-              <Text style={styles.x}>Refresh Profile</Text>
             </TouchableOpacity>
           </SafeAreaView>
         </SafeAreaView>
